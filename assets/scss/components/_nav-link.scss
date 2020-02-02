@@ -1,0 +1,22 @@
+.nav-link {
+  color: #121212;
+  display: block;
+  font-family: Helvetica, sans-serif;
+  font-size: .8em;
+  margin: 6px 0;
+  text-decoration: none;
+
+  span {
+    border-radius: 3px;
+    padding: 4px;
+  }
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    span {
+      background: #f7f7f7;
+    }
+  }
+}

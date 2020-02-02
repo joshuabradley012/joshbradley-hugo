@@ -1,0 +1,15 @@
+.social {
+  color: #666;
+  font-size: 1.3em;
+
+  a {
+    color: #666;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: #121212;
+      text-decoration: none;
+    }
+  }
+}

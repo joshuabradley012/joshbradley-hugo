@@ -1,0 +1,6 @@
+{{ if (or .Title .Content) }}
+  <div class="archive-intro">
+    {{ with .Title }}<h1 class="h5" itemprop="name">{{ . }}</h1>{{ end }}
+    {{ with .Content }}<div itemprop="text">{{ . }}</div>{{ end }}
+  </div>
+{{ end }}

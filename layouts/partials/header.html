@@ -1,0 +1,17 @@
+<header class="header" itemscope itemtype="https://schema.org/WPHeader">
+  <a rel="bookmark" itemprop="url" href="{{ .Site.BaseURL }}" class="logo">
+    <img class="image" itemprop="image" src="{{ "/images/logo.svg" | absURL }}" title="joshbradley.me" alt="Josh Bradley's logo" />
+    <p class="title" itemprop="headline">joshbradley.me</p>
+  </a>
+  <nav itemscope itemtype="https://schema.org/SiteNavigationElement">
+    {{ $currentPage := . }}
+    {{ range .Site.Menus.main -}}
+      <a class="nav-link{{ if eq $currentPage.RelPermalink .URL }} active{{end}}" href="{{ .URL | absURL }}" rel="bookmark" itemprop="url"><span itemprop="name">{{ .Name }}</span></a>
+    {{- end }}
+    <div>—</div>
+    {{ range .Site.Menus.secondary -}}
+      <a class="nav-link{{ if eq $currentPage.RelPermalink .URL }} active{{end}}" href="{{ .URL | absURL }}" rel="bookmark" itemprop="url"><span itemprop="name">{{ .Name }}</span></a>
+    {{- end }}
+  </nav>
+  {{ partial "social.html" . }}
+</header>

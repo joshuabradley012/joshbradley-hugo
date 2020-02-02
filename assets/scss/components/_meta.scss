@@ -1,0 +1,42 @@
+.meta {
+
+  & > * {
+    font-family: Helvetica, sans-serif;
+    color: #999;
+    margin: 0 .625em 0 0;
+  }
+
+  &.tags {
+    border-top: 1px solid #ddd;
+    display: block;
+    margin: 1.5em 0 4em;
+    padding: 1.5em 0 0;
+    word-break: break-word;
+
+    & > * {
+      color: #777;
+      line-height: 3;
+    }
+
+    a {
+      text-decoration: none;
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: #333;
+
+        span {
+          border-color: #333;
+        }
+      }
+    }
+
+    span {
+      border: 1px solid #777;
+      border-radius: 3px;
+      padding: 4px;
+      white-space: nowrap;
+    }
+  }
+}

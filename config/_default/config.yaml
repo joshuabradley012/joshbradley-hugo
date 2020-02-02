@@ -1,0 +1,32 @@
+baseURL: /
+languageCode: en-us
+publishdir: /Users/joshbradley/Sites/joshbradley
+title: Josh Bradley | Marketer, Coder, Analyst
+disableHugoGeneratorInject: true
+
+params:
+  author: Josh Bradley
+
+menu:
+  main:
+  - idenfifier: about
+    name: About
+    url: /about/
+    weight: 1
+  - idenfifier: contact
+    name: Contact
+    url: /contact/
+    weight: 2
+  - idenfifier: projects
+    name: Projects
+    url: /projects/
+    weight: 3
+  secondary:
+  - idenfifier: categories
+    name: Categories
+    url: /categories/
+    weight: 4
+  - idenfifier: tags
+    name: Tags
+    url: /tags/
+    weight: 5

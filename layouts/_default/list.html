@@ -1,0 +1,10 @@
+{{ define "main" }}
+  <div class="main" itemscope itemtype="https://schema.org/CollectionPage">
+    {{ partial "archive/intro.html" . }}
+    <ul>
+      {{ range .Pages }}
+        <li><a rel="bookmark" itemprop="relatedLink" href="{{ .Permalink }}"><span itemprop="name">{{ .Title }}</span></a></li>
+      {{ end }}
+    </ul>
+  </div>
+{{ end }}

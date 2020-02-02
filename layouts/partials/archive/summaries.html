@@ -1,0 +1,4 @@
+{{ range .Paginator.Pages }}
+  {{ .Render "summary" }}
+{{ end }}
+{{ partial "pagination.html" . }}

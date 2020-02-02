@@ -1,0 +1,55 @@
+html {
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+  color: #333;
+  font-family: Georgia, serif;
+  font-size: 62.5%;
+  line-height: 1.375;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration: underline dotted;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -.25em;
+}
+
+sup {
+  top: -.5em;
+}
+
+img {
+  border-style: none;
+  height: auto;
+  max-width: 100%;
+}
+
+[hidden] {
+  display: none;
+}

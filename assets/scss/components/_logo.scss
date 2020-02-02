@@ -1,0 +1,20 @@
+.logo {
+  color: #000;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  .title {
+    font-family: Courier, monospace;
+    font-size: 18px;
+  }
+
+  .image {
+    user-select: none;
+    width: 88px;
+  }
+}
