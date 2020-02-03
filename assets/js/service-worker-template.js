@@ -1,6 +1,6 @@
 "use strict";
 
-const cacheName = 'v3';
+const cacheName = 'v4';
 
 const coreAssets = [
   './index.html',
@@ -53,8 +53,15 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', (event) => {
   const normalizedUrl = new URL(event.request.url);
   normalizedUrl.search = '';
+  // Network then cache for html
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(normalizedUrl).catch(function() {
+        return caches.match(normalizedUrl);
+      })
+    );
   // Cache then update for assets "stale-while-revalidate"
-  if (event.request.mode === 'same-origin') {
+  } else if (normalizedUrl.origin === location.origin) {
     event.respondWith(
       caches.open(cacheName).then(function(cache) {
         return cache.match(normalizedUrl).then(function(response) {
@@ -64,13 +71,6 @@ self.addEventListener('fetch', (event) => {
           });
           return response || fetchPromise;
         });
-      })
-    );
-  // Network then cache for html
-  } else if (event.request.mode === 'navigate') {
-    event.respondWith(
-      fetch(normalizedUrl).catch(function() {
-        return caches.match(normalizedUrl);
       })
     );
   }
