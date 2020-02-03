@@ -8,6 +8,7 @@ navToggle.addEventListener('click', function() {
 {{ if eq hugo.Environment "production" }}
 
 if ('serviceWorker' in navigator) {
+  // Register service worker after load to prioritize content
   window.addEventListener('load', function() {
     navigator.serviceWorker.register('/service-worker.min.js', {updateViaCache: 'none'});
   });
