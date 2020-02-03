@@ -1,9 +1,16 @@
-let pagesToCache = [
+"use strict";
+
+const cacheName = 'v2';
+
+const coreAssets = [
   './index.html',
   './style.css',
   './app.min.js',
   './images/logo.svg',
   './fonts/icon-outline.woff2',
+];
+
+const pagesToCache = [
   {{ with .Site.Pages }}
     {{ range  (where . "Type" "page") }}
       '{{ .RelPermalink }}',
@@ -21,30 +28,45 @@ let pagesToCache = [
 ];
 
 self.addEventListener('install', (event) => {
+  // Prioritize caching critical resources
   event.waitUntil(
-    caches.open('v1').then((cache) => {
-      return cache.addAll(pagesToCache);
+    caches.open(cacheName).then((cache) => {
+      cache.addAll(pagesToCache);
+      return cache.addAll(coreAssets);
     })
   );
 });
 
-self.addEventListener('fetch', (event) => {
-  if (event.request.url.indexOf('http') === 0) {
-    event.respondWith(caches.match(event.request).then(function(response) {
-      if (response !== undefined) {
-        return response;
-      } else {
-        return fetch(event.request).then(function (response) {
-          let responseClone = response.clone();
+self.addEventListener('activate', event => {
+  // Delete old caches
+  event.waitUntil(
+    caches.keys().then(keys => Promise.all(
+      keys.map(key => {
+        if (key !== cacheName) {
+          return caches.delete(key);
+        }
+      })
+    ))
+  );
+});
 
-          caches.open('v1').then(function (cache) {
-            cache.put(event.request, responseClone);
+self.addEventListener('fetch', (event) => {
+  // Show cache and update cache with network response "stale-while-revalidate"
+  if (event.request.url.indexOf('http') === 0) {
+    if (event.request.mode === 'navigate') {
+      event.respondWith(
+        caches.open(cacheName).then(function(cache) {
+          const normalizedUrl = new URL(event.request.url);
+          normalizedUrl.search = '';
+          return cache.match(normalizedUrl).then(function(response) {
+            let fetchPromise = fetch(normalizedUrl).then(function(networkResponse) {
+              cache.put(normalizedUrl, networkResponse.clone());
+              return networkResponse;
+            });
+            return response || fetchPromise;
           });
-          return response;
-        }).catch(function () {
-          return caches.match('/index.html');
-        });
-      }
-    }));
+        })
+      );
+    }
   }
 });

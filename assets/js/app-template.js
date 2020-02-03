@@ -1,15 +1,17 @@
+"use strict";
+
 let navToggle = document.getElementById('nav-toggle');
 navToggle.addEventListener('click', function() {
   document.body.classList.toggle('nav-open');
 });
 
-{{ if eq $.Hugo.Environment "production" }}
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/service-worker.min.js')
-  .then((reg) => {
+{{ if eq hugo.Environment "production" }}
 
-  }).catch((error) => {
-    console.log('Service worker registration failed with ' + error);
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/service-worker.min.js', {updateViaCache: 'none'});
   });
+  // navigator.serviceWorker.getRegistrations().then(function(registrations){for(let registration of registrations){registration.unregister();}});
 }
+
 {{ end }}
