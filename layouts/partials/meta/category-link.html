@@ -1,0 +1,5 @@
+{{ with .Params.categories -}}
+  {{ range first 1 . -}}
+    <a rel="bookmark" itemprop="relatedLink" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}"><span class="category" itemprop="name">{{ . }}</span></a>
+  {{- end }}
+{{- end }}

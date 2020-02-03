@@ -1,20 +1,20 @@
 .meta {
 
   & > * {
-    font-family: Helvetica, sans-serif;
-    color: #999;
+    font-family: $sub-font;
+    color: $lightest-color;
     margin: 0 .625em 0 0;
   }
 
   &.tags {
-    border-top: 1px solid #ddd;
+    border-top: 1px solid $light-border;
     display: block;
     margin: 1.5em 0 4em;
     padding: 1.5em 0 0;
     word-break: break-word;
 
     & > * {
-      color: #777;
+      color: $lighter-color;
       line-height: 3;
     }
 
@@ -24,18 +24,18 @@
       &:hover,
       &:focus,
       &:active {
-        color: #333;
+        color: $default-color;
 
         span {
-          border-color: #333;
+          border-color: $default-color;
         }
       }
     }
 
     span {
-      border: 1px solid #777;
-      border-radius: 3px;
-      padding: 4px;
+      border: 1px solid $lighter-color;
+      border-radius: .267857em;
+      padding: .357143em .535714em;
       white-space: nowrap;
     }
   }

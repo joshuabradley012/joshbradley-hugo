@@ -1,14 +1,15 @@
 .nav-link {
-  color: #121212;
+  color: $dark-color;
   display: block;
-  font-family: Helvetica, sans-serif;
+  font-family: $sub-font;
   font-size: .8em;
   margin: 6px 0;
   text-decoration: none;
 
   span {
-    border-radius: 3px;
-    padding: 4px;
+    border-radius: .234375em;
+    padding: .3125em;
+    margin: - .3125em;
   }
 
   &:hover,
@@ -16,7 +17,7 @@
   &:active,
   &.active {
     span {
-      background: #f7f7f7;
+      background: $nav-active-background;
     }
   }
 }

@@ -3,26 +3,13 @@
     <article class="single" itemscope itemtype="https://schema.org/CreativeWork">
       <h1 itemprop="headline">{{ .Title }}</h1>
       {{ if eq .Type "post" }}
-        <small class="meta">
-          {{ if .PublishDate }}
-            <time itemprop="datePublished" datetime="{{ .PublishDate.Format "2006-01-02T15:04:05-07:00" }}">{{ .PublishDate.Format "Jan 2, 2006" }}</time>
-          {{ end }}
-          {{ if .Params.categories }}
-            {{ range first 1 .Params.categories -}}
-              <a rel="bookmark" itemprop="relatedLink" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}"><span class="category" itemprop="name">{{ . }}</span></a>
-            {{- end }}
-          {{ end }}
-        </small>
+        {{ partial "meta/meta.html" (dict "context" . "data" (slice "time" "category-link")) }}
       {{ end }}
       <div itemprop="text">
         {{ .Content }}
       </div>
-      {{ with .Params.tags }}
-        <small class="meta tags">
-          {{ range . -}}
-            <a rel="bookmark" itemprop="relatedLink" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}"><span itemprop="name">{{ . }}</span></a>
-          {{- end }}
-        </small>
+      {{ if and (eq .Type "post") (.Params.tags) }}
+        {{ partial "meta/meta.html" (dict "context" . "data" (slice "tags")) }}
       {{ end }}
     </article>
   </main>

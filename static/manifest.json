@@ -1,0 +1,21 @@
+{
+  "short_name": "Josh Bradley",
+  "name": "Josh Bradley | Marketer, Coder, Analyst",
+  "icons": [
+    {
+      "src": "/images/app-logo-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/app-logo-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/?utm_source=pwa",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#ffffff"
+}

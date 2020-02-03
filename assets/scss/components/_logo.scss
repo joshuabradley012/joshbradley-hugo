@@ -1,7 +1,7 @@
 .logo {
-  color: #000;
+  color: $darker-color;
   display: block;
-  text-align: center;
+  line-height: 1;
   text-decoration: none;
 
   &:hover {
@@ -9,11 +9,12 @@
   }
 
   .title {
-    font-family: Courier, monospace;
+    font-family: $mono-font;
     font-size: 18px;
+    margin: 18px 0 1.8rem;
   }
 
-  .image {
+  .mark {
     user-select: none;
     width: 88px;
   }

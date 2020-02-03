@@ -1,8 +1,11 @@
 baseURL: /
 languageCode: en-us
-publishdir: /Users/joshbradley/Sites/joshbradley
 title: Josh Bradley | Marketer, Coder, Analyst
 disableHugoGeneratorInject: true
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
 
 params:
   author: Josh Bradley
@@ -30,3 +33,8 @@ menu:
     name: Tags
     url: /tags/
     weight: 5
+
+deployment:
+  targets:
+    name: s3
+    URL: s3://joshbradley.me?region=us-west-1

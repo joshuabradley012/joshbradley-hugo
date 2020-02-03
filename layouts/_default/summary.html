@@ -6,16 +6,6 @@
         {{- .Summary -}}
       </p>
     {{ end }}
-
-    <small class="meta">
-      {{ if .Params.categories }}
-        {{ range first 1 .Params.categories -}}
-          <span class="category">{{ . }}</span>
-        {{- end }}
-      {{ end }}
-      {{ if .PublishDate }}
-        <time itemprop="datePublished" datetime="{{ .PublishDate.Format "2006-01-02T15:04:05-07:00" }}">{{ .PublishDate.Format "Jan 2, 2006" }}</time>
-      {{ end }}
-    </small>
+    {{ partial "meta/meta.html" (dict "context" . "data" (slice "category" "time")) }}
   </a>
 </article>

@@ -3,7 +3,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: optional;
-  src: url(/fonts/icon.woff2) format("woff2");
+  src: url(/fonts/icon-outline.woff2) format("woff2");
 }
 
 [class^="i-"],
@@ -34,14 +34,14 @@
   }
 }
 
-.i-github::before {
-  content: '\f300';
-}
+// Boxed
+// .i-export-alt:before { content: '\f14d'; }
+// .i-github::before { content: '\f300'; }
+// .i-twitter::before { content: '\f304'; }
+// .i-linkedin::before { content: '\f30c'; }
 
-.i-twitter::before {
-  content: '\f304';
-}
-
-.i-linkedin::before {
-  content: '\f30c';
-}
+// Outline
+.i-forward:before { content: '\e800'; }
+.i-twitter:before { content: '\f099'; }
+.i-github:before { content: '\f09b'; }
+.i-linkedin:before { content: '\f0e1'; }

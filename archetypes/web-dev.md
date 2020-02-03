@@ -4,5 +4,5 @@ date: {{ .Date }}
 draft: true
 type: "post"
 categories:
-- Coding
+- Web Development
 ---

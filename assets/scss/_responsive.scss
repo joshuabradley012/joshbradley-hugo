@@ -1,0 +1,105 @@
+@media (max-width: 50rem) {
+
+  html {
+    padding: 0 15px;
+  }
+
+  input,
+  button {
+    font-size: .9em;
+  }
+
+  .header {
+    border-right: 0;
+    font-size: 2rem;
+    padding: 0;
+    position: static;
+    text-align: left;
+
+    .inner {
+      background: #fff;
+      height: 65px;
+      margin: 0 auto;
+      max-width: $content-width;
+      padding: 15px 0;
+      position: relative;
+    }
+
+    .logo {
+      display: inline;
+
+      .mark {
+        width: 35px;
+      }
+
+      .title {
+        display: none;
+      }
+    }
+
+    .nav {
+      background: #fff;
+      border-bottom: 1px solid $dark-color;
+      display: none;
+      left: 0;
+      padding: 1rem 0;
+      position: absolute;
+      top: 55px;
+      right: 0;
+
+      .nav-open & {
+        display: block;
+      }
+    }
+
+    .mobile-nav-toggle {
+      border-radius: 50%;
+      box-sizing: content-box;
+      cursor: pointer;
+      height: 16px;
+      float: right;
+      padding: 7px;
+      margin: 2.5px -7px 2.5px 0;
+      width: 16px;
+
+      span {
+        background: #000;
+        border-radius: 50%;
+        display: block;
+        height: 4px;
+        margin: 0 auto 2px;
+        width: 4px;
+      }
+
+      .nav-open & {
+        background: $nav-active-background;
+        display: block;
+      }
+    }
+  }
+
+  .pagination {
+    font-size: .9em;
+  }
+
+  .search {
+    input[type="text"] {
+      line-height: 1.333333;
+      width: 60%;
+    }
+  }
+
+  .main,
+  .footer {
+    margin: 2rem auto 4rem;
+    padding: 0;
+  }
+
+  .main {
+    font-size: 1.6rem;
+  }
+
+  .footer {
+    margin-top: 0;
+  }
+}

@@ -1,26 +1,26 @@
 .pagination {
-  color: #121212;
-  font-family: Helvetica, sans-serif;
-  font-size: .9142em;
+  color: $dark-color;
+  font-family: $sub-font;
+  font-size: .914285em;
   margin: 4rem 0;
 
   .pager {
-    color: #121212;
+    color: $dark-color;
     text-decoration: none;
     top: -.1em;
     position: relative;
 
     span {
       border-radius: 50%;
-      margin: 0 -4px;
-      padding: 0 4px;
+      margin: 0 -.3125em;
+      padding: 0 .3125em;
     }
 
     &:hover,
     &:focus,
     &:active {
       span {
-        background: #f7f7f7;
+        background: $nav-active-background;
       }
     }
 

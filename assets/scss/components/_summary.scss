@@ -1,5 +1,5 @@
 .summary {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid $light-border;
   margin: 0 0 1.5rem 0;
   padding: 0 0 1.5rem 0;
 
@@ -10,7 +10,7 @@
   }
 
   a {
-    color: #555;
+    color: $slightly-light-color;
     display: block;
     text-decoration: none;
 
@@ -20,14 +20,14 @@
     &:hover > *,
     &:focus > *,
     &:active > * {
-      color: #666;
+      color: $light-color;
     }
   }
 
   h2 {
     font-size: 1.2em;
     line-height: inherit;
-    margin: 0 0 .4167em;
+    margin: 0 0 .416667em;
   }
 
   p {

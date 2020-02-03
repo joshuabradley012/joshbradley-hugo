@@ -1,7 +1,5 @@
-$offset: 35.5%;
-
 .header {
-  border-right: 1px solid #ccc;
+  border-right: 1px solid $dark-border;
   left: auto;
   padding: 24px 40px;
   position: fixed;
@@ -18,7 +16,7 @@ $offset: 35.5%;
 .footer {
   box-sizing: content-box;
   margin: 80px auto 4rem $offset;
-  max-width: 46rem;
+  max-width: $content-width;
   padding: 0 0 0 40px;
 }
 
@@ -27,7 +25,7 @@ $offset: 35.5%;
 }
 
 .footer {
-  color: #666;
+  color: $light-color;
   margin-bottom: 100px;
   margin-top: 0;
 }
