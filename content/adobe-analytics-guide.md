@@ -13,5 +13,5 @@ tags:
 
 Adobe Analytics Workspace is the most powerful analytics tool I have ever used. However, it comes at the cost of difficult, poorly documented libraries and platforms.
 
-To get the most out of Adobe Analytics, you need to map out a complex web of variables considering what your business needs are, then how you will go about capturing them.
+Implementing Adobe Analytis involves mapping business needs to online datapoints and building a system that can efficiently and accurately collect that data.
 

@@ -53,15 +53,8 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', (event) => {
   const normalizedUrl = new URL(event.request.url);
   normalizedUrl.search = '';
-  // Network then cache for html
-  if (event.request.mode === 'navigate') {
-    event.respondWith(
-      fetch(normalizedUrl).catch(function() {
-        return caches.match(normalizedUrl);
-      })
-    );
-  // Cache then update for assets "stale-while-revalidate"
-  } else if (normalizedUrl.origin === location.origin) {
+  // Cache then update "stale-while-revalidate"
+  if (normalizedUrl.origin === location.origin) {
     event.respondWith(
       caches.open(cacheName).then(function(cache) {
         return cache.match(normalizedUrl).then(function(response) {
