@@ -12,19 +12,10 @@ tags:
 - Hugo
 ---
 
-This website is insanely fast. It loads in 100ms and the homepage is only 9KB. For perspective:
+This website is insanely fast. he homepage is only 9KB and it loads in 100ms. To put that in perspective:
 * {{< externallink "Google Analytics" "https://www.google-analytics.com/analytics.js" >}} is 17.7KB
 * {{< externallink "This PNG" "https://abs.twimg.com/responsive-web/web/heart_animation.5c9f8e84.png" >}} Twitter uses for their heart animation is 10KB
+* A blink normally takes 100-400ms
 
 There were sacrifices made to achieve such extreme minification, but it embodies what websites could be in stark contrast to what they have become.
 
-{{< highlight html >}}
-<section id="main">
-  <div>
-   <h1 id="title">{{ .Title }}</h1>
-    {{ range .Pages }}
-        {{ .Render "summary"}}
-    {{ end }}
-  </div>
-</section>
-{{< /highlight >}}

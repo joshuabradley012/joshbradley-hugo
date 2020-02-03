@@ -7,6 +7,6 @@ draft: true
 
 I'm Josh.
 
-I've been building websites and finding ways to optimize them since 2016. This website was an exercie in making the purest website I could, following the web's best practices.
+I've been building websites and finding ways to optimize them since 2016.
 
 If you like [what I've done](/projects) and want to work with me, [get in touch](/contact).

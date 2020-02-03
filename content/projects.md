@@ -5,7 +5,7 @@ date: 2020-01-30T22:19:18-08:00
 draft: true
 ---
 
-I've built a few things, but a lot of my work has been at work. I hope to have more here soon.
+Most of my work has been at work. But I'm hoping to add open source contributions here soon.
 
 * {{< externallink "This website (2020)" "https://github.com/joshuabradley012/joshbradley-hugo" >}}
 * {{< externallink "The Jobsite by Procore (2020)" "https://jobsite.procore.com" >}}

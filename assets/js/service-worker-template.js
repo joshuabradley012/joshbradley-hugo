@@ -1,6 +1,6 @@
 "use strict";
 
-const cacheName = 'v2';
+const cacheName = 'v3';
 
 const coreAssets = [
   './index.html',
@@ -51,22 +51,27 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', (event) => {
-  // Show cache and update cache with network response "stale-while-revalidate"
-  if (event.request.url.indexOf('http') === 0) {
-    if (event.request.mode === 'navigate') {
-      event.respondWith(
-        caches.open(cacheName).then(function(cache) {
-          const normalizedUrl = new URL(event.request.url);
-          normalizedUrl.search = '';
-          return cache.match(normalizedUrl).then(function(response) {
-            let fetchPromise = fetch(normalizedUrl).then(function(networkResponse) {
-              cache.put(normalizedUrl, networkResponse.clone());
-              return networkResponse;
-            });
-            return response || fetchPromise;
+  const normalizedUrl = new URL(event.request.url);
+  normalizedUrl.search = '';
+  // Cache then update for assets "stale-while-revalidate"
+  if (event.request.mode === 'same-origin') {
+    event.respondWith(
+      caches.open(cacheName).then(function(cache) {
+        return cache.match(normalizedUrl).then(function(response) {
+          let fetchPromise = fetch(normalizedUrl).then(function(networkResponse) {
+            cache.put(normalizedUrl, networkResponse.clone());
+            return networkResponse;
           });
-        })
-      );
-    }
+          return response || fetchPromise;
+        });
+      })
+    );
+  // Network then cache for html
+  } else if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(normalizedUrl).catch(function() {
+        return caches.match(normalizedUrl);
+      })
+    );
   }
 });
