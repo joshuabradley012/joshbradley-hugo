@@ -1,0 +1,23 @@
+.nav-link {
+  color: $dark-color;
+  display: block;
+  font-family: $sub-font;
+  font-size: .8em;
+  margin: 6px 0;
+  text-decoration: none;
+
+  span {
+    border-radius: .234375em;
+    padding: .3125em;
+    margin: - .3125em;
+  }
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    span {
+      background: $nav-active-background;
+    }
+  }
+}

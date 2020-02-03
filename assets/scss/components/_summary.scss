@@ -1,0 +1,36 @@
+.summary {
+  border-bottom: 1px solid $light-border;
+  margin: 0 0 1.5rem 0;
+  padding: 0 0 1.5rem 0;
+
+  &:last-of-type {
+    border-bottom: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    color: $slightly-light-color;
+    display: block;
+    text-decoration: none;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &:hover > *,
+    &:focus > *,
+    &:active > * {
+      color: $light-color;
+    }
+  }
+
+  h2 {
+    font-size: 1.2em;
+    line-height: inherit;
+    margin: 0 0 .416667em;
+  }
+
+  p {
+    margin: .5em 0;
+  }
+}

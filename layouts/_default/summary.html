@@ -1,0 +1,11 @@
+<article class="summary" itemscope itemtype="https://schema.org/CreativeWork">
+  <a rel="bookmark" itemprop="url" href="{{ .Permalink }}">
+    <h2 itemprop="headline">{{ .Title }}</h2>
+    {{ if .Summary }}
+      <p itemprop="abstract">
+        {{- .Summary -}}
+      </p>
+    {{ end }}
+    {{ partial "meta/meta.html" (dict "context" . "data" (slice "category" "time")) }}
+  </a>
+</article>

@@ -1,0 +1,4 @@
+{{ define "main" }}
+  {{ $paginator := .Paginate (where .Site.RegularPages "Type" "post") }}
+  {{ partial "archive/main.html" (dict "Paginator" $paginator) }}
+{{ end }}

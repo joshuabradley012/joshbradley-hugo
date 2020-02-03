@@ -1,0 +1,21 @@
+.logo {
+  color: $darker-color;
+  display: block;
+  line-height: 1;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  .title {
+    font-family: $mono-font;
+    font-size: 18px;
+    margin: 18px 0 1.8rem;
+  }
+
+  .mark {
+    user-select: none;
+    width: 88px;
+  }
+}

@@ -1,0 +1,47 @@
+@font-face {
+  font-family: 'icon';
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+  src: url(/fonts/icon-outline.woff2) format("woff2");
+}
+
+[class^="i-"],
+[class*=" i-"] {
+  line-height: 1;
+  vertical-align: text-bottom;
+
+  &::before {
+    font-family: 'icon';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    line-height: 1;
+    speak: none;
+    display: inline-block;
+    text-transform: none;
+    text-decoration: none;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    width: 1em;
+    box-sizing: content-box;
+    overflow: hidden;
+  }
+}
+
+// Boxed
+// .i-export-alt:before { content: '\f14d'; }
+// .i-github::before { content: '\f300'; }
+// .i-twitter::before { content: '\f304'; }
+// .i-linkedin::before { content: '\f30c'; }
+
+// Outline
+.i-forward:before { content: '\e800'; }
+.i-twitter:before { content: '\f099'; }
+.i-github:before { content: '\f09b'; }
+.i-linkedin:before { content: '\f0e1'; }

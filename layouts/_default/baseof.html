@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en-us" }}">
+<head itemscope itemtype="https://schema.org/WebSite">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>{{ .Title }}</title>
+  {{ with .Description }}<meta name="description" content="{{ . }}">{{ end }}
+  {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
+  {{ with .Permalink }}<link rel="canonical" href="{{ . }}" />{{ end }}
+
+  <meta itemprop="name" content="Josh Bradley's Blog" />
+  <meta itemprop="author" content="Josh Bradley" />
+  <meta itemprop="url" content="https://joshbradley.me" />
+
+  {{ with .Title }}<meta property="og:title" content="{{ . }}" />{{ end }}
+  <meta property="og:type" content="website" />
+  {{ with .Description }}<meta property="og:description" content="{{ . }}" />{{ end }}
+  {{ with .Permalink }}<meta property="og:url" content="{{ . }}" />{{ end }}
+  <meta property="og:image" content="{{ .Site.BaseURL }}images/og-logo.png" />
+  <meta property="og:image:width" content="125" />
+  <meta property="og:image:height" content="125" />
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@josh_b_rad">
+  <meta name="twitter:creator" content="@josh_b_rad">
+
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/images/app-logo-192.png">
+  <meta name="theme-color" content="#ffffff"/>
+
+  {{ $toCssOptions := (dict "targetPath" "style.css" "outputStyle" "compressed") }}
+  {{ $style := resources.Get "scss/main.scss" | toCSS $toCssOptions | resources.PostCSS}}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+
+  {{ $swTemplate := resources.Get "js/service-worker-template.js" }}
+  {{ $sw := $swTemplate | resources.ExecuteAsTemplate "service-worker.js" . | resources.Minify }}
+  <link rel="service-worker" href="{{ $sw.RelPermalink }}">
+
+  {{ with .OutputFormats.Get "RSS" -}}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
+  {{- end }}
+
+</head>
+<body class="{{ lower .Kind }} {{ lower .Type }}" itemscope itemtype="https://schema.org/WebPage">
+
+  {{ partial "header" . }}
+  {{ block "main" . }}{{ end }}
+  {{ partial "footer" . }}
+
+  {{ $scriptTemplate := resources.Get "js/app-template.js" }}
+  {{ $script := $scriptTemplate | resources.ExecuteAsTemplate "app.js" $ | resources.Minify }}
+  <script src="{{ $script.RelPermalink }}"></script>
+
+</body>
+</html>

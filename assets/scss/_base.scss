@@ -1,0 +1,89 @@
+html {
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+  color: $default-color;
+  font-family: Georgia, serif;
+  font-size: 62.5%;
+  line-height: 1.375;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration: underline dotted;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -.25em;
+}
+
+sup {
+  top: -.5em;
+}
+
+img {
+  border-style: none;
+  height: auto;
+  max-width: 100%;
+}
+
+input,
+button {
+  color: $default-color;
+  font-family: $sub-font;
+  font-size: .7em;
+  box-sizing: border-box;
+}
+
+input {
+  border: 1px solid #d1d1d1;
+}
+
+button {
+  background-color: transparent;
+  border: 1px solid #d1d1d1;
+  border-radius: .267857em;
+  border-top-color: #d8d8d8;
+  border-bottom-color: #bababa;
+  color: $light-color;
+  cursor: pointer;
+  padding: .178571em .535714em;
+}
+
+[hidden] {
+  display: none;
+}
+
+label[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0,0,0,0);
+  height: 1px;
+  overflow: hidden;
+  position: absolute!important;
+  width: 1px;
+  word-wrap: normal!important;
+}

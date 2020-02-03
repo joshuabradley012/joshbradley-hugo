@@ -1,0 +1,91 @@
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  font-family: Helvetica, sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+h1, .h1 {
+  color: $dark-color;
+  font-size: 2em;
+  margin: .5em 0;
+}
+
+h2, .h2 {
+  color: $dark-color;
+  font-size: 1.5em;
+  margin: 1.333333em 0 .666667em;
+}
+
+h3, .h3 {
+  color: $dark-color;
+  font-size: 1.2em;
+  margin: 1.666666em 0 .833333em;
+}
+
+h4, .h4 {
+  color: $dark-color;
+  font-size: 1em;
+  letter-spacing: .025em;
+  text-transform: uppercase;
+  margin: 2em 0 1em;
+}
+
+h5, .h5 {
+  color: $light-color;
+  font-size: 1em;
+  letter-spacing: .025em;
+  text-transform: uppercase;
+  margin: 2em 0 1em;
+}
+
+h6, .h6 {
+  color: $light-color;
+  font-size: .8em;
+  text-transform: uppercase;
+  letter-spacing: .025em;
+  margin: 2.5em 0 1.25em;
+}
+
+a {
+  text-decoration: underline;
+}
+
+a:hover,
+a:active,
+a:focus {
+  text-decoration: none;
+}
+
+blockquote {
+  font-style: italic;
+  margin: 1em 2em;
+}
+
+data:hover::after {
+  content: ' (ID ' attr(value) ')';
+  font-size: .8em;
+}
+
+del {
+  color: $lighter-color;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid $dark-border;
+}
+
+ul,
+ol {
+  padding: 0 0 0 2em;
+}
+
+var {
+  font-family: $sub-font;
+  font-weight: 600;
+}

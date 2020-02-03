@@ -1,0 +1,6 @@
+<small class="meta {{ delimit .data " " }}"
+  {{ if (and (eq (len .data) 1) (in .data "tags")) }}itemprop="keywords"{{ end }}>
+  {{ range $index, $data := .data -}}
+    {{- partial (printf "meta/%s" .) $.context -}}
+  {{- end }}
+</small>

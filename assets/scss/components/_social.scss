@@ -1,0 +1,17 @@
+.social {
+  a {
+    color: $lighter-color;
+    margin-right: 1em;
+
+    &:last-of-type {
+      margin-right: 0
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: $dark-color;
+      text-decoration: none;
+    }
+  }
+}

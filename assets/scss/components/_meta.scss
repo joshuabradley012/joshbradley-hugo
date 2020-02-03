@@ -1,0 +1,42 @@
+.meta {
+
+  & > * {
+    font-family: $sub-font;
+    color: $lightest-color;
+    margin: 0 .625em 0 0;
+  }
+
+  &.tags {
+    border-top: 1px solid $light-border;
+    display: block;
+    margin: 1.5em 0 4em;
+    padding: 1.5em 0 0;
+    word-break: break-word;
+
+    & > * {
+      color: $lighter-color;
+      line-height: 3;
+    }
+
+    a {
+      text-decoration: none;
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: $default-color;
+
+        span {
+          border-color: $default-color;
+        }
+      }
+    }
+
+    span {
+      border: 1px solid $lighter-color;
+      border-radius: .267857em;
+      padding: .357143em .535714em;
+      white-space: nowrap;
+    }
+  }
+}

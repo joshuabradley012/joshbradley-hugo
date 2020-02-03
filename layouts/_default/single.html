@@ -1,0 +1,16 @@
+{{ define "main" }}
+  <main class="main">
+    <article class="single" itemscope itemtype="https://schema.org/CreativeWork">
+      <h1 itemprop="headline">{{ .Title }}</h1>
+      {{ if eq .Type "post" }}
+        {{ partial "meta/meta.html" (dict "context" . "data" (slice "time" "category-link")) }}
+      {{ end }}
+      <div itemprop="text">
+        {{ .Content }}
+      </div>
+      {{ if and (eq .Type "post") (.Params.tags) }}
+        {{ partial "meta/meta.html" (dict "context" . "data" (slice "tags")) }}
+      {{ end }}
+    </article>
+  </main>
+{{ end }}
