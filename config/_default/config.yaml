@@ -10,8 +10,6 @@ markup:
   goldmark:
     renderer:
       unsafe: true
-
-markup:
   highlight:
     codeFences: true
     guessSyntax: false
