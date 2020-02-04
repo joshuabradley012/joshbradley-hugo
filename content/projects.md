@@ -13,4 +13,4 @@ Most of my work has been at work. But I'm hoping to add open source contribution
 * {{< externallink "An AppFolio search tool (2018)" "https://github.com/joshuabradley012/appfolio-searchapp" >}}
 * {{< externallink "Handelman Studios' website (2017)" "https://www.stevenhandelmanstudios.com/" >}}
 * {{< externallink "Epoch Microelectronic's website (2017)" "https://www.epochmicro.com/" >}}
-* {{< externallink "Parts of Pacifica Graduate Institute's website (2017)" "https://www.epochmicro.com/" >}}
+* {{< externallink "Parts of Pacifica Graduate Institute's website (2017)" "https://www.pacifica.edu/" >}}

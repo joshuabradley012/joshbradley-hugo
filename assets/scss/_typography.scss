@@ -66,9 +66,14 @@ blockquote {
   margin: 1em 2em;
 }
 
-data:hover::after {
+data::after {
   content: ' (ID ' attr(value) ')';
+  display: none;
   font-size: .8em;
+
+  &:hover {
+    display: inline;
+  }
 }
 
 del {

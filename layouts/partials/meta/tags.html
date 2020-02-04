@@ -1,5 +1,5 @@
 {{ with .Params.tags -}}
   {{ range . -}}
-    <a rel="bookmark" itemprop="relatedLink" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}"><span itemprop="name">{{ . }}</span></a>
+    <a rel="bookmark" itemprop="relatedLink" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}/"><span itemprop="name">{{ . }}</span></a>
   {{- end }}
 {{- end }}

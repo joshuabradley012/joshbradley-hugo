@@ -1,6 +1,6 @@
 "use strict";
 
-const cacheName = 'v4';
+const cacheName = 'v5';
 
 const coreAssets = [
   './index.html',
@@ -28,9 +28,9 @@ const pagesToCache = [
 ];
 
 self.addEventListener('install', (event) => {
-  // Prioritize caching critical resources
+  // Assets as dependency for install, the rest as non-blocking
   event.waitUntil(
-    caches.open(cacheName).then((cache) => {
+    caches.open(cacheName).then(function(cache) {
       cache.addAll(pagesToCache);
       return cache.addAll(coreAssets);
     })
@@ -40,21 +40,35 @@ self.addEventListener('install', (event) => {
 self.addEventListener('activate', event => {
   // Delete old caches
   event.waitUntil(
-    caches.keys().then(keys => Promise.all(
-      keys.map(key => {
-        if (key !== cacheName) {
-          return caches.delete(key);
-        }
-      })
-    ))
+    caches.keys().then(function(keys) {
+      Promise.all(
+        keys.map(function(key) {
+          if (key !== cacheName) {
+            return caches.delete(key);
+          }
+        })
+      )
+    })
   );
 });
 
 self.addEventListener('fetch', (event) => {
   const normalizedUrl = new URL(event.request.url);
   normalizedUrl.search = '';
-  // Cache then update "stale-while-revalidate"
-  if (normalizedUrl.origin === location.origin) {
+  // Network then update for homepage
+  if (normalizedUrl.href === location.origin + '/' && event.request.mode === 'navigate') {
+    event.respondWith(
+      caches.open(cacheName).then(function(cache) {
+        return fetch(normalizedUrl).then(function(networkResponse) {
+          cache.put(normalizedUrl, networkResponse.clone());
+          return networkResponse;
+        }).catch(function() {
+          return cache.match(normalizedUrl);
+        });
+      })
+    );
+  // Cache then update for pages "stale-while-revalidate"
+  } else if (normalizedUrl.origin === location.origin && event.request.mode === 'navigate') {
     event.respondWith(
       caches.open(cacheName).then(function(cache) {
         return cache.match(normalizedUrl).then(function(response) {
@@ -64,6 +78,13 @@ self.addEventListener('fetch', (event) => {
           });
           return response || fetchPromise;
         });
+      })
+    );
+  // Cache first, falling back to network for static assets, no updating
+  } else if (normalizedUrl.origin === location.origin) {
+    event.respondWith(
+      caches.match(normalizedUrl).then(function(response) {
+        return response || fetch(event.request);
       })
     );
   }
