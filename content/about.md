@@ -9,4 +9,4 @@ I'm Josh.
 
 I've been building websites and finding ways to optimize them since 2016.
 
-If you like [what I've done](/projects) and want to work with me, [get in touch](/contact).
+If you like [what I've done](/projects/) and want to work with me, [get in touch](/contact/).

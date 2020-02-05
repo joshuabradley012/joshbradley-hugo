@@ -1,6 +1,6 @@
 "use strict";
 
-const cacheName = 'v5';
+const cacheName = 'v6';
 
 const coreAssets = [
   './index.html',
@@ -27,10 +27,13 @@ const pagesToCache = [
   {{ end }}
 ];
 
+let updateHomepageCache = true;
+
 self.addEventListener('install', (event) => {
   // Assets as dependency for install, the rest as non-blocking
   event.waitUntil(
     caches.open(cacheName).then(function(cache) {
+      updateHomepageCache = false;
       cache.addAll(pagesToCache);
       return cache.addAll(coreAssets);
     })
@@ -52,15 +55,27 @@ self.addEventListener('activate', event => {
   );
 });
 
+self.addEventListener('message', (event) => {
+  if (event.data === 'updateHomepageCache') {
+    updateHomepageCache = true;
+  }
+});
+
 self.addEventListener('fetch', (event) => {
   const normalizedUrl = new URL(event.request.url);
   normalizedUrl.search = '';
-  // Network then update for homepage
-  if (normalizedUrl.href === location.origin + '/' && event.request.mode === 'navigate') {
+
+  const isNavgation = event.request.mode === 'navigate';
+  const isFromOrigin = normalizedUrl.origin === location.origin;
+  const isHomepage = normalizedUrl.href === location.origin + '/';
+
+  // Network then update for homepage if it needs to be updated
+  if (isHomepage && isNavgation && updateHomepageCache) {
     event.respondWith(
       caches.open(cacheName).then(function(cache) {
         return fetch(normalizedUrl).then(function(networkResponse) {
           cache.put(normalizedUrl, networkResponse.clone());
+          updateHomepageCache = false;
           return networkResponse;
         }).catch(function() {
           return cache.match(normalizedUrl);
@@ -68,7 +83,7 @@ self.addEventListener('fetch', (event) => {
       })
     );
   // Cache then update for pages "stale-while-revalidate"
-  } else if (normalizedUrl.origin === location.origin && event.request.mode === 'navigate') {
+  } else if (isFromOrigin && isNavgation) {
     event.respondWith(
       caches.open(cacheName).then(function(cache) {
         return cache.match(normalizedUrl).then(function(response) {
@@ -81,7 +96,7 @@ self.addEventListener('fetch', (event) => {
       })
     );
   // Cache first, falling back to network for static assets, no updating
-  } else if (normalizedUrl.origin === location.origin) {
+  } else if (isFromOrigin) {
     event.respondWith(
       caches.match(normalizedUrl).then(function(response) {
         return response || fetch(event.request);
@@ -89,3 +104,4 @@ self.addEventListener('fetch', (event) => {
     );
   }
 });
+

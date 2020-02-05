@@ -19,7 +19,7 @@ markup:
     lineNumbersInTable: true
     noClasses: true
     style: friendly
-    tabWidth: 4
+    tabWidth: 2
 
 menu:
   main:
