@@ -11,7 +11,10 @@ tags:
 - Adobe Analytics
 ---
 
-Adobe Analytics Workspace is the most powerful analytics tool I have ever used. However, it comes at the cost of difficult, poorly documented libraries and platforms.
+Adobe Analytics Workspace is the most powerful analytics tool I have ever used. However, it was the most painful implementation I have ever experienced.
 
-To get the most out of Adobe Analytics, you need to map out a complex web of variables considering what your business needs are, then how you will go about capturing them.
+I hope I can save you some pain.
 
+A successful implementation maps business needs to digital datapoints that are effeciently and accurately captured.
+
+It is essential to start with a well defined <abbr title="Business Requirements Document - Solution Design Reference">BRD-SDR</abbr> for planning and documentation. Here is the template I used: {{< externallink "BRD-SDR Template" "https://docs.google.com/spreadsheets/d/1dHQw4Y1ThgnYr_dg3kFQvqR0ePucwFc15Ai5WOD2DiA/edit?usp=sharing" >}}

@@ -2,13 +2,24 @@ baseURL: /
 languageCode: en-us
 title: Josh Bradley | Marketer, Coder, Analyst
 disableHugoGeneratorInject: true
+
+params:
+  author: Josh Bradley
+
 markup:
   goldmark:
     renderer:
       unsafe: true
-
-params:
-  author: Josh Bradley
+  highlight:
+    codeFences: true
+    guessSyntax: false
+    hl_Lines: ""
+    lineNoStart: 1
+    lineNos: false
+    lineNumbersInTable: true
+    noClasses: true
+    style: friendly
+    tabWidth: 2
 
 menu:
   main:

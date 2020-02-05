@@ -1,9 +1,16 @@
-let pagesToCache = [
+"use strict";
+
+const cacheName = 'v6';
+
+const coreAssets = [
   './index.html',
   './style.css',
   './app.min.js',
   './images/logo.svg',
   './fonts/icon-outline.woff2',
+];
+
+const pagesToCache = [
   {{ with .Site.Pages }}
     {{ range  (where . "Type" "page") }}
       '{{ .RelPermalink }}',
@@ -20,31 +27,81 @@ let pagesToCache = [
   {{ end }}
 ];
 
+let updateHomepageCache = true;
+
 self.addEventListener('install', (event) => {
+  // Assets as dependency for install, the rest as non-blocking
   event.waitUntil(
-    caches.open('v1').then((cache) => {
-      return cache.addAll(pagesToCache);
+    caches.open(cacheName).then(function(cache) {
+      updateHomepageCache = false;
+      cache.addAll(pagesToCache);
+      return cache.addAll(coreAssets);
     })
   );
 });
 
-self.addEventListener('fetch', (event) => {
-  if (event.request.url.indexOf('http') === 0) {
-    event.respondWith(caches.match(event.request).then(function(response) {
-      if (response !== undefined) {
-        return response;
-      } else {
-        return fetch(event.request).then(function (response) {
-          let responseClone = response.clone();
+self.addEventListener('activate', event => {
+  // Delete old caches
+  event.waitUntil(
+    caches.keys().then(function(keys) {
+      Promise.all(
+        keys.map(function(key) {
+          if (key !== cacheName) {
+            return caches.delete(key);
+          }
+        })
+      )
+    })
+  );
+});
 
-          caches.open('v1').then(function (cache) {
-            cache.put(event.request, responseClone);
-          });
-          return response;
-        }).catch(function () {
-          return caches.match('/index.html');
-        });
-      }
-    }));
+self.addEventListener('message', (event) => {
+  if (event.data === 'updateHomepageCache') {
+    updateHomepageCache = true;
   }
 });
+
+self.addEventListener('fetch', (event) => {
+  const normalizedUrl = new URL(event.request.url);
+  normalizedUrl.search = '';
+
+  const isNavgation = event.request.mode === 'navigate';
+  const isFromOrigin = normalizedUrl.origin === location.origin;
+  const isHomepage = normalizedUrl.href === location.origin + '/';
+
+  // Network then update for homepage if it needs to be updated
+  if (isHomepage && isNavgation && updateHomepageCache) {
+    event.respondWith(
+      caches.open(cacheName).then(function(cache) {
+        return fetch(normalizedUrl).then(function(networkResponse) {
+          cache.put(normalizedUrl, networkResponse.clone());
+          updateHomepageCache = false;
+          return networkResponse;
+        }).catch(function() {
+          return cache.match(normalizedUrl);
+        });
+      })
+    );
+  // Cache then update for pages "stale-while-revalidate"
+  } else if (isFromOrigin && isNavgation) {
+    event.respondWith(
+      caches.open(cacheName).then(function(cache) {
+        return cache.match(normalizedUrl).then(function(response) {
+          let fetchPromise = fetch(normalizedUrl).then(function(networkResponse) {
+            cache.put(normalizedUrl, networkResponse.clone());
+            return networkResponse;
+          });
+          return response || fetchPromise;
+        });
+      })
+    );
+  // Cache first, falling back to network for static assets, no updating
+  } else if (isFromOrigin) {
+    event.respondWith(
+      caches.match(normalizedUrl).then(function(response) {
+        return response || fetch(event.request);
+      })
+    );
+  }
+});
+

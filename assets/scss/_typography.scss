@@ -66,9 +66,14 @@ blockquote {
   margin: 1em 2em;
 }
 
-data:hover::after {
+data::after {
   content: ' (ID ' attr(value) ')';
+  display: none;
   font-size: .8em;
+
+  &:hover {
+    display: inline;
+  }
 }
 
 del {
@@ -83,6 +88,13 @@ hr {
 ul,
 ol {
   padding: 0 0 0 2em;
+}
+
+pre {
+  background-color: #f0f0f0;
+  border-radius: 0.263736em;
+  overflow: scroll;
+  padding: 1em;
 }
 
 var {
