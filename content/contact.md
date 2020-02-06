@@ -78,4 +78,4 @@ b2rH71v6cOF1aSqbwU2yzuFX0cLU2yM7zuMpvqmLlogiVUvB2w==
 -----END PGP PUBLIC KEY BLOCK-----</code>
 </pre>
 
-Key server: {{< externallink "MIT PGP Public Key Server" "https://pgp.mit.edu/pks/lookup?search=hello%40joshbradley.me" >}}
+{{< externallink "MIT PGP Public Key Server" "https://pgp.mit.edu/pks/lookup?search=hello%40joshbradley.me" >}}

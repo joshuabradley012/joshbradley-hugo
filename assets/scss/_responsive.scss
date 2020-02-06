@@ -30,7 +30,7 @@
     text-align: left;
 
     .inner {
-      background: #fff;
+      background: $white;
       height: 65px;
       margin: 0 auto;
       max-width: $content-width;
@@ -51,7 +51,7 @@
     }
 
     .nav {
-      background: #fff;
+      background: $white;
       border-bottom: 1px solid $dark-color;
       display: none;
       left: 0;
@@ -76,7 +76,7 @@
       width: 13px;
 
       span {
-        background: #000;
+        background: $darker-color;
         border-radius: 50%;
         display: block;
         height: 3px;
