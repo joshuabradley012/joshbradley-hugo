@@ -147,15 +147,34 @@ In total, the CSS is 6.4KB (2.3KB after GZIP).
 
 ### Minimal JavaScript
 
-Aside from the ServiceWorker, this is all I used. A simple click listener to toggle the `nav-open` class.
+Aside from the ServiceWorker, this is all I used. A simple click listener to toggle the `nav-open` class, and a function to lazyload images.
 
-###### Nav Toggle
+###### Navigation Toggle
 
-{{< highlight scss >}}
+{{< highlight javascript >}}
 var navToggle = document.getElementById('nav-toggle');
 navToggle.addEventListener('click', function() {
   document.body.classList.toggle('nav-open');
 });
+{{< / highlight >}}
+
+###### Lazyload
+
+{{< highlight javascript >}}
+window.addEventListener('DOMContentLoaded', lazyload, false);
+function lazyload() {
+  var imgs = document.getElementsByClassName('lazyload');
+  for (var i = 0; i < imgs.length; i++) {
+    var img = imgs[i];
+    if (img.nodeName === 'IMG') {
+      img.addEventListener('load', function() { this.className += ' loaded' });
+      img.dataset.src ? img.src = img.dataset.src : null;
+      img.dataset.srcset ? img.srcset = img.dataset.srcset : null;
+    } else {
+      img.dataset.src ? img.style.backgroundImage = 'url(' + img.dataset.src + ')' : null;
+    }
+  }
+}
 {{< / highlight >}}
 
 ### A ServiceWorker
@@ -233,7 +252,7 @@ The only expense is my domain name. When I start to get traffic, I can scale for
 
 This page gets a perfect 100 for performance in Chrome Lighthouse.
 
-SEO and best practices are at 100, and it's a PWA. Accessibility scored a 93 because I used a light font for my meta data. If I were to add a contrast option, it would be a "perfect" website.
+SEO and best practices are at 100, and it's a PWA. Accessibility scored a 93 because of the light grey used in meta data. If I were to add a contrast option, it would be a "perfect" website.
 
 Chasing arbitrary numbers is pointless without purpose. This wasn't pointless. This website achieves everything I need and does it cleanly. The user experience is pristine. The typography is delightful. The structure is meaningful.
 
