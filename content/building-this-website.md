@@ -233,7 +233,7 @@ The only expense is my domain name. When I start to get traffic, I can scale for
 
 This page gets a perfect 100 for performance in Chrome Lighthouse.
 
-SEO and best practices are at 100, and it's a PWA. Accessibility scored a 93 because I used a light font for my meta data. If I were to add a contrast option, it would be a "perfect" website.
+SEO and best practices are at 100, and it's a PWA. Accessibility scored a 93 because of the light grey used in meta data. If I were to add a contrast option, it would be a "perfect" website.
 
 Chasing arbitrary numbers is pointless without purpose. This wasn't pointless. This website achieves everything I need and does it cleanly. The user experience is pristine. The typography is delightful. The structure is meaningful.
 
