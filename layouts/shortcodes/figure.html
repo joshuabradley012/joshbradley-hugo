@@ -1,12 +1,10 @@
 {{ $alt:= "" }}
-{{ if or (.Get "alt") (.Get "caption") (.Get "title") }}
-  {{ if .Get "alt" }}
-    {{ $alt = .Get "alt" }}
-  {{ else if .Get "caption" }}
-    {{ $alt = .Get "caption" | markdownify| plainify }}
-  {{ else if .Get "title" }}
-    {{ $alt = .Get "title" | markdownify| plainify }}
-  {{ end }}
+{{ if .Get "alt" }}
+  {{ $alt = .Get "alt" }}
+{{ else if .Get "caption" }}
+  {{ $alt = .Get "caption" | markdownify| plainify }}
+{{ else if .Get "title" }}
+  {{ $alt = .Get "title" | markdownify| plainify }}
 {{ end }}
 
 <figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
