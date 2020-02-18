@@ -2,7 +2,7 @@
 title: "About"
 description: "joshbradley.me is my personal website built to exemplify web best practices"
 date: 2020-01-30T22:19:02-08:00
-draft: true
+draft: false
 ---
 
 I'm Josh.

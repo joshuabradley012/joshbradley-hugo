@@ -2,7 +2,7 @@
 title: "Contact"
 description: "Contact Josh Bradley through email or social media. Work with me on websites and marketing."
 date: 2020-01-27T23:07:09-08:00
-draft: true
+draft: false
 ---
 
 You can say <a href="mailto:hello@joshbradley.me">hello@joshbradley.me</a>.

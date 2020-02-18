@@ -2,7 +2,7 @@
 title: "Projects"
 description: "A list of projects by Josh Bradley with links to the code on Github."
 date: 2020-01-30T22:19:18-08:00
-draft: true
+draft: false
 ---
 
 Most of my work has been at work. But I'm hoping to add open source contributions here soon.
