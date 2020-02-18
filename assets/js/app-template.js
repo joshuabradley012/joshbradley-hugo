@@ -1,5 +1,7 @@
 "use strict";
 
+window.addEventListener('DOMContentLoaded', lazyload, false);
+
 var navToggle = document.getElementById('nav-toggle');
 navToggle.addEventListener('click', function() {
   document.body.classList.toggle('nav-open');
@@ -31,16 +33,16 @@ if (navigator.serviceWorker) {
   }
 
   // Register service worker after load to prioritize content
-  window.addEventListener('load', function() {
-    if (!controlled) {
+  if (!controlled) {
+    window.addEventListener('load', function() {
       sw.register('/service-worker.min.js', {updateViaCache: 'none'})
       .then(function(registation){
         if (!cached) {
           setCookie('cached', 'true', 1);
         }
       });
-    }
-  });
+    });
+  }
 }
 
 function setCookie(name, value, days) {
@@ -88,3 +90,17 @@ function updateMain() {
 navigator.serviceWorker.getRegistrations().then(function(registrations){for(let registration of registrations){registration.unregister();}});
 
 {{ end }}
+
+function lazyload() {
+  var imgs = document.getElementsByClassName('lazyload');
+  for (var i = 0; i < imgs.length; i++) {
+    var img = imgs[i];
+    if (img.nodeName === 'IMG') {
+      img.addEventListener('load', function() { this.className += ' loaded' });
+      img.dataset.src ? img.src = img.dataset.src : null;
+      img.dataset.srcset ? img.srcset = img.dataset.srcset : null;
+    } else {
+      img.dataset.src ? img.style.backgroundImage = 'url(' + img.dataset.src + ')' : null;
+    }
+  }
+}

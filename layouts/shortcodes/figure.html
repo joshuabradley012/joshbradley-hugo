@@ -1,0 +1,37 @@
+{{ $alt:= "" }}
+{{ if or (.Get "alt") (.Get "caption") (.Get "title") }}
+  {{ if .Get "alt" }}
+    {{ $alt = .Get "alt" }}
+  {{ else if .Get "caption" }}
+    {{ $alt = .Get "caption" | markdownify| plainify }}
+  {{ else if .Get "title" }}
+    {{ $alt = .Get "title" | markdownify| plainify }}
+  {{ end }}
+{{ end }}
+
+<figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
+  {{- if .Get "link" -}}
+    <a href="{{ .Get "link" }}"{{ with .Get "target" }} target="{{ . }}"{{ end }}{{ with .Get "rel" }} rel="{{ . }}"{{ end }}{{ with $alt }} title="{{ . }}"{{ end }}>
+  {{- end }}
+  <img data-src="{{ .Get "src" }}" class="lazyload"
+    {{- with $alt }} alt="{{ . }}"{{ end -}}
+    {{- with .Get "width" }} width="{{ . }}"{{ end -}}
+    {{- with .Get "height" }} height="{{ . }}"{{ end -}}
+  />
+  {{- if .Get "link" }}</a>{{ end -}}
+  {{- if or (or (.Get "title") (.Get "caption")) (.Get "attr") -}}
+    <figcaption>
+      {{ with (.Get "title") -}}
+        <h4>{{ . }}</h4>
+      {{- end -}}
+      {{- if or (.Get "caption") (.Get "attr") -}}<p>
+        {{- .Get "caption" | markdownify -}}
+        {{- with .Get "attrlink" }}
+          <a href="{{ . }}">
+        {{- end -}}
+        {{- .Get "attr" | markdownify -}}
+        {{- if .Get "attrlink" }}</a>{{ end }}</p>
+      {{- end }}
+    </figcaption>
+  {{- end }}
+</figure>
