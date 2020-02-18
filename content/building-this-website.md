@@ -1,65 +1,69 @@
 ---
 title: "Building This Website"
-seotitle: "Building a Static Website that Loads in 50ms"
+seotitle: "Build a Lightning Quick Website using Hugo and S3"
 date: 2020-01-27T22:26:31-08:00
-draft: true
+draft: false
 type: "post"
-description: "Hugo is a powerful site generator, here is how I built in schema markup, clean scss, and a service worker."
-summary: "This site is tiny and powerful, featuring schema markup and service workers. Here is what I learned while building it."
+description: "Hugo is a powerful site generator, here is how I built in schema markup, clean scss, and a ServiceWorker."
+summary: "This site is tiny and powerful, featuring schema markup and ServiceWorkers. Here is what I learned while building it."
 categories:
 - Web Development
 tags:
 - Hugo
 ---
 
-This website is insanely fast. The homepage is only 9KB (after GZIP) and it loads in 50ms after being cached. To put that in perspective Google Analytics is 17.7KB, this {{< externallink "PNG" "https://abs.twimg.com/responsive-web/web/heart_animation.5c9f8e84.png" >}} Twitter uses for their heart animation is 10KB, and blinking takes 100-400ms.
+This website is <em>fast</em>. The homepage loads in 50ms and is only 9KB (after GZIP and caching).
 
-There were sacrifices to achieving such extreme minification, but it embodies what websites could be in stark contrast with what they have become.
+Google Analytics is 17.7KB, this {{< externallink "PNG" "https://abs.twimg.com/responsive-web/web/heart_animation.5c9f8e84.png" >}} Twitter uses is 10KB, and blinking takes 100-400ms.
+
+There were sacrifices. But it is an example of what websites could be in stark contrast with what they have become.
 
 ## Why speed matters
 
-Reality has no latency. Things <em>feel</em> wrong when there is delay between our actions and their response. Speed is the most important aspect of user experience.
+Reality has no latency. Things <em>feel</em> wrong when there is a delay between our actions and their response. Speed is the most important aspect of user experience.
 
-But as computers have become more powerful, they haven't gotten faster. They've been bloated.
+But as computers have become more powerful, they haven't gotten faster. They're bloated.
 
-In a {{< externallink "magnificent rant" "https://tonsky.me/blog/disenchantment/" >}} Nikkita Tonsky wrote:
+In a {{< externallink "magnificent rant" "https://tonsky.me/blog/disenchantment/" >}}, Nikkita Tonsky wrote:
 
 > Windows 95 was 30MB. Today we have web pages heavier than that! Windows 10 is 4GB, which is 133 times as big. But is it 133 times as superior?
 
-Frameworks like React address speed by controlling the DOM, but it comes at the cost of 100KB of Javascript, wasted CPU cycles, and complexity that is difficult to maintain.
+Frameworks like React address speed by controlling the DOM. At the cost of 100KB of JavaScript, wasted CPU cycles, and complexity.
 
-Static HTML is the soul of the internet. It is ubiquitous, easy to understand, and easy for search engines to crawl. It is the ideal format for any website. Just take a look at {{< externallink "this motherfucking website" "https://motherfuckingwebsite.com/" >}}.
+Static HTML is the soul of the internet. It is ubiquitous, easy to understand, and easy for search engines to crawl. It is the ideal format for any website. Look at {{< externallink "this motherfucking website" "https://motherfuckingwebsite.com/" >}}.
 
-While I didnt go that extreme, this website is pretty close. And I love it.
+While I wasn't as extreme, this website is pretty close. And I love it.
 
 ## Design choices
 
-There are no frameworks, webfonts, or libraries on this website. Everything was hand written and if it didn't directly improve the user experience, it wasn't included.
+There are no frameworks, web fonts, or libraries on this website. Everything was handwritten. If it didn't improve the user experience, it wasn't included.
 
-In particular, there are no web analytics on this page. If I really want to know my traffic and snoop IP addresses, I can check my server logs. But I'm not going to invade your privacy and inconcenience you with a script that feeds even more data to our Google overlord.
+In particular, there isn't any analytics on this page. If I want to know traffic metrics and snoop IP addresses, I can check the server logs. I'm not going to invade your privacy with an inconvenient script. Or feed more data to our Google overlord.
 
-I was heavily inspired by Paul Graham, John Gruber's Daring Fireball, Seth Godin, Butterick's Practical Typography, and the New York Times. I hoped to capture some of their simplicity and mastery of typography.
+I'm inspired by {{< externallink "Paul Graham" "http://www.paulgraham.com/articles.html" >}} and {{< externallink "John Gruber's" "https://daringfireball.net/" >}} simplicity. {{< externallink "Seth Godin" "https://seths.blog/" >}}, {{< externallink "Butterick's Practical Typography" "https://practicaltypography.com/" >}}, and {{< externallink "The New York Times" "https://www.nytimes.com/" >}} provided examples of beautiful typography. I hoped to capture their mastery.
 
-This design is meant to last.
+This design intends to last.
 
 ## The stack
 
-1. <a href="#hugo">Hugo</a>
-2. <a href="#static-assets">Static assets</a>
-3. <a href="#custom-scss">Custom SCSS</a>
-4. <a href="#minimal-javascript">Minimal Javascript</a>
-5. <a href="#service-worker">A service worker</a>
-6. <a href="#aws-hosting">AWS hosting</a>
+1. [Hugo](#hugo)
+2. [Static assets](#static-assets)
+3. [Custom SCSS](#custom-scss)
+4. [Minimal JavaScript](#minimal-javascript)
+5. [A ServiceWorker](#a-serviceworker)
+6. [AWS hosting](#aws-hosting)
 
-Check out the {{< externallink "repo" "https://github.com/joshuabradley012/joshbradley-hugo" >}} (I think I'll turn it into a theme at some point).
+Check out the {{< externallink "repo" "https://github.com/joshuabradley012/joshbradley-hugo" >}} (I'll turn it into a theme at some point).
 
-<h3 id="hugo">Hugo</h3>
+### Hugo
 
-I chose Hugo because of the control and productivity it provides. I was able to create a minimal, semantic markup laden with {{< externallink "schema markup" "https://schema.org/" >}}.
+I chose Hugo because of the control and productivity it provides. I was able to create a minimal, semantic structure laden with {{< externallink "schema markup" "https://schema.org/" >}}.
 
-My favorite feature has to be the ability to build any asset with it's templating language, and minify it! In this case I used it to build an array of cacheable pages for a service worker.
+Hugo's ability to generate and minify assets in any language removed my need for build tools. Keeping my codebase uniform, simple, and fast.
 
-###### Array in service worker
+In this case, I used it to build an array of cacheable pages for a ServiceWorker.
+
+###### Array in ServiceWorker
 
 {{< highlight javascript >}}
 const pagesToCache = [
@@ -88,31 +92,27 @@ self.addEventListener('install', (event) => {
 });
 {{< / highlight >}}
 
-I was also pleased to learn it came with a built in SCSS post processer and that the templating language was sufficiently powerful for dynamic rendering.
+With Hugo's power and shallow learning curve, I was able to complete the base of this website in one week.
 
-With Hugo's near-instant build process and shallow learning curve, I was able to complete the base of this website in one week.
+### Static assets
 
-<h3 id="static-assets">Static assets</h3>
+I mentioned that I didn't use any web fonts. I lied. I created one with {{< externallink "Fontello" "http://fontello.com/" >}} for social media icons. Using `woff2` was only 1KB larger than SVG icons with better extensibility.
 
-I mentioned that I didn't use any webfonts. I lied. I created one with {{< externallink "Fontello" "http://fontello.com/" >}} for social media icons. With the `woff2` format it was only 1KB larger than SVG icons. But it comes with better extensibility, and they're easier to work with.
+Because I handpicked icons, the entire font is only 3.1KB. Compare that to FontAwesome's 161KB. Plus another 70-120KB for every font-weight you include.
 
-After handpicking the icons, the entire font is only 3.1KB. As compared to FontAwesome's 161KB (plus another 70-120KB for every font weight you include, and their CSS).
+The logo is a single path SVG, made on a 16pt grid and minified with one decimal precision. The result is 399B.
 
-The logo is a single path SVG, made on a 16pt grid and minified with one decimal precision. The end result is 399B.
+I used Georgia for the body, Helvetica for headings and navigation, and Courier for code. These are all {{< externallink "websafe fonts" "https://www.cssfontstack.com/" >}}.
 
-I went with Georgia for the body, Helvetica for headings and navigation, and Courier for code. These are all {{< externallink "websafe fonts" "https://www.cssfontstack.com/" >}} and don't require anything to load.
+### Custom SCSS
 
-<h3 id="custom-scss">Custom SCSS</h3>
+The layout is very simple, two containers one fixed one relative. I didn't need Bootstrap, only a few lines of CSS. I converted my code to SCSS while avoiding nested selector hell.
 
-The layout is very simple, two containers with content inside. So I didn't need Bootstrap, just a few lines of CSS. I went with SCSS for better modularity, but wrote I it with the output in mind. Meaning I didn't get into nested selector hell.
+I gave special attention to the typography. Using many shades of grey to create a subtle balance of contrast. It strives to be easy on the eyes while drawing attention to important sections.
 
-There is a single media query, and as always updating the navigation to be mobile was the heaviest part of this build.
+Everything uses `rem` and `em` units for a responsive, accessible design. Vision impaired users can adjust this site without disrupting the typography.
 
-I also gave special attention to the typography. Using many shades of grey and consistent margins between elements, with double on top for headings.
-
-Everything uses `rem` and `em` units so it responds to user settings and I can add a font size adjuster whenever I'd like without breaking the careful column widths.
-
-The entire theme can be configured with just a few variables.
+The entire theme is configurable with a few variables.
 
 ###### Theme SCSS
 
@@ -143,13 +143,13 @@ $offset: 35.5%;
 $content-width: 46rem;
 {{< / highlight >}}
 
-In total, this page loads 6.4KB of CSS (2.3KB after GZIP).
+In total, the CSS is 6.4KB (2.3KB after GZIP).
 
-<h3 id="minimal-javascript">Minimal Javascript</h3>
+### Minimal JavaScript
 
-The Javascript of this website is really composed of a nav toggle, and a service worker. If I dropped the service worker, this block is all there would be.
+Aside from the ServiceWorker, this is all I used. A simple click listener to toggle the `nav-open` class.
 
-###### Nav Toggle Javascript
+###### Nav Toggle
 
 {{< highlight scss >}}
 var navToggle = document.getElementById('nav-toggle');
@@ -158,17 +158,15 @@ navToggle.addEventListener('click', function() {
 });
 {{< / highlight >}}
 
-But I decided to learn about service workers, and make this website nearly instantaneous in the process.
+### A ServiceWorker
 
-<h3 id="sevice-worker">A service worker</h3>
+Creating a ServiceWorker was the most complex piece of this website. It took me about 1/3<sup>rd</sup> of the total development time, but it was worth learning.
 
-Creaing a service worker was the most complex piece of this website. It took me about 33% of the total development time, but it was a fun challenge that taught me a lot.
+I could have kept it simple. The "stale-while-revalidate" pattern outlined in {{< externallink "Google's Offline Cookbook" "https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook" >}} would have been enough. You might have picked up, I rarely do things the easy way.
 
-I could have kept it easy with a "stale-while-revalidate" pattern as outlined in {{< externallink "Google's Offline Cookbook" "https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook" >}}. But you might have picked up, I rarely do things the easy way.
+Instead, there are three different cache patterns. The first load imports all assets. Then the ServiceWorker takes control.
 
-Instead I chose to have three different caching patterns for different use cases.
-
-Static assets are the simplest, they respond from the cache after the service worker has finished loading. That way your network isn't wasted until I decide to update something.
+Static assets are the simplest, they respond from the cache with a fallback to the network. That way the network isn't called until the cache is invalid.
 
 ###### Cache with network fallback
 
@@ -182,7 +180,7 @@ self.addEventListener('fetch', (event) => {
 });
 {{< / highlight >}}
 
-Pages have a slightly more complex pattern, imitating a "stale-while-revalidate" pattern. Showing the cached response and updating the cahce in the background. That way the user gets instant load, but an updated resource the next time they visit.
+Pages have a more complex pattern, imitating HTTP's "stale-while-revalidate" policy. The user experiences an instant load while the resource updates for the next visit.
 
 ###### Stale-while-revalidate
 
@@ -204,20 +202,39 @@ self.addEventListener('fetch', (event) => {
 });
 {{< / highlight >}}
 
-And finally the true beast, a cache then update with network policy, within static HTML. The pattern goes like this.
+The pièce de résistance, a cache then update with network policy within static HTML. Keeping the homepage fresh.
 
-1. Browser request
-2. ServiceWorker returns cached response
-3. Page posts message to ServiceWorker, telling it to use the network on the next load
-4. Service worker responds with message saying it heard
-5. Page makes fetch request
-6. ServiceWorker updates cache and returns network response
-7. Page updates with the network response
+The pattern goes like this.
 
-The code is heavy, but you can find it in the {{< externallink "repo" "https://github.com/joshuabradley012/joshbradley-hugo/tree/master/assets/js" >}}.
+{{< figure src="/images/cache-then-network.svg" title="Cache then network diagram" link="/images/cache-then-network.svg" target="blank" >}}
+
+You can find the source code in the {{< externallink "repo" "https://github.com/joshuabradley012/joshbradley-hugo/tree/master/assets/js" >}}.
 
 
-<h3 id="aws-hosting">AWS Hosting</h3>
+### AWS Hosting
 
-This is a simple S3 bucket being served with Cloudfront masked by a domain in Route53. It sounds simple, but learning AWS is intimidating. Their documentation is dense and unfriendly.
+This is an S3 bucket served through Cloudfront routed through a Route53 domain. It sounds simple but learning AWS is intimidating. Their platform is dense and prickly.
 
+Here is some helpful documentation:
+
+1. {{< externallink "Domain names you can register with Route53" "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html" >}}
+2. {{< externallink "Routing Route53 to Cloudfront" "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.html" >}}
+3. {{< externallink "Serving a static S3 website with Cloudfront" "https://aws.amazon.com/premiumsupport/knowledge-center/cloudfront-serve-static-website/" >}}
+4. {{< externallink "Allowing directory paths with S3 and Cloudfront (without a Lambda)" "https://stevepapa.com/how-to-specify-a-default-root-object-for-static-website-subdirectories-on-aws-cloudfront/" >}}
+5. Setting up the AWS CLI (for Hugo deployments) {{< externallink "install" "https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html" >}} and {{< externallink "credentials" "https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html" >}}
+6. {{< externallink "Invalidating Cloudfront" "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html" >}}
+7. {{< externallink "Setting cache control on all S3 items" "https://stackoverflow.com/questions/10435334/set-cache-control-for-entire-s3-bucket-automatically-using-bucket-policies" >}}
+
+I also created an email with <abbr title="Simple Email Service">SES</abbr> that routes messages to my Gmail. An S3 bucket stores emails and a Lambda function sends them. {{< externallink "Daniel Lopez" "http://www.daniloaz.com/en/use-gmail-with-your-own-domain-for-free-thanks-to-amazon-ses-lambda/" >}} has a useful guide.
+
+The only expense is my domain name. When I start to get traffic, I can scale for cheap.
+
+## The Result
+
+This page gets a perfect 100 for performance in Chrome Lighthouse.
+
+SEO and best practices are at 100, and it's a PWA. Accessibility scored a 93 because I used a light font for my meta data. If I were to add a contrast option, it would be a "perfect" website.
+
+Chasing arbitrary numbers is pointless without purpose. This wasn't pointless. This website achieves everything I need and does it cleanly. The user experience is pristine. The typography is delightful. The structure is meaningful.
+
+Good design is less design.

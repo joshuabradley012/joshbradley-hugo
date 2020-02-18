@@ -7,7 +7,6 @@ navToggle.addEventListener('click', function() {
 
 {{ if eq hugo.Environment "production" }}
 
-
 if (navigator.serviceWorker) {
 
   const sw = navigator.serviceWorker;
@@ -37,7 +36,7 @@ if (navigator.serviceWorker) {
       sw.register('/service-worker.min.js', {updateViaCache: 'none'})
       .then(function(registation){
         if (!cached) {
-          getCookie('cached', 'true', 1);
+          setCookie('cached', 'true', 1);
         }
       });
     }

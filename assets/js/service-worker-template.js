@@ -32,7 +32,8 @@ let update = true;
 self.addEventListener('install', e => {
   // Assets as dependency for install, the rest as non-blocking
   e.waitUntil(
-    caches.open(cache).then(cache => {
+    caches.open(cache)
+    .then(cache => {
       update = false;
       cache.addAll(pagesToCache);
       return cache.addAll(coreAssets);
@@ -43,7 +44,8 @@ self.addEventListener('install', e => {
 self.addEventListener('activate', e => {
   // Delete old caches
   e.waitUntil(
-    caches.keys().then(keys => {
+    caches.keys()
+    .then(keys => {
       Promise.all(
         keys.map(key => {
           if (key !== cache) {
@@ -56,7 +58,7 @@ self.addEventListener('activate', e => {
 });
 
 self.addEventListener('message', e => {
-  if (e.data === "update-cache" && e.ports) {
+  if (e.data === 'update-cache' && e.ports) {
     update = true;
     e.ports[0].postMessage('done');
   }
@@ -86,11 +88,13 @@ self.addEventListener('fetch', e => {
 });
 
 function networkThenUpdate(url) {
-  return caches.open(cache).then(cache => {
-    return fetch(url).then((resp) => {
-      cache.put(url, resp.clone());
+  return caches.open(cache)
+  .then(cache => {
+    return fetch(url)
+    .then(networkResponse => {
+      cache.put(url, networkResponse.clone());
       update = false;
-      return resp;
+      return networkResponse;
     }).catch(() => {
       return cache.match(url);
     });
@@ -98,19 +102,23 @@ function networkThenUpdate(url) {
 }
 
 function cacheThenUpdate(url) {
-  return caches.open(cache).then(cache => {
-    return cache.match(url).then(response => {
-      let fetchPromise = fetch(url).then(networkResponse => {
+  return caches.open(cache)
+  .then(cache => {
+    return cache.match(url)
+    .then(cacheResponse => {
+      let fetchPromise = fetch(url).
+      then(networkResponse => {
         cache.put(url, networkResponse.clone());
         return networkResponse;
       });
-      return response || fetchPromise;
+      return cacheResponse || fetchPromise;
     });
   });
 }
 
 function cacheWithFallback(url) {
-  return caches.match(url).then(response => {
-    return response || fetch(url);
+  return caches.match(url)
+  .then(cacheResponse => {
+    return cacheResponse || fetch(url);
   })
 }

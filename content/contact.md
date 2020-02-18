@@ -12,7 +12,7 @@ Or find me on:
 * {{< externallink "Twitter" "https://twitter.com/josh_b_rad" >}}
 * {{< externallink "LinkedIn" "https://www.linkedin.com/in/joshua-bradley-925678b1/" >}}
 
-<pre style="max-height: 200px;">
+<pre style="max-height: 20rem;">
 <code>-----BEGIN PGP PUBLIC KEY BLOCK-----
 
 mQINBF46GtgBEACkHJQcHT1Vw7+RjdUd069KJXKSkUr35zSzqiPvzuy7999iVodz

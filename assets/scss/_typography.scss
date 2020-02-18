@@ -66,6 +66,12 @@ blockquote {
   margin: 1em 2em;
 }
 
+code {
+  background: $code-background;
+  color: $dark-color;
+  padding: .125em .25em;
+}
+
 data::after {
   content: ' (ID ' attr(value) ')';
   display: none;
@@ -73,6 +79,21 @@ data::after {
 
   &:hover {
     display: inline;
+  }
+}
+
+figure {
+  margin: 2em 0;
+}
+
+figcaption {
+  h4 {
+    color: $light-color;
+    font-size: .8em;
+    font-weight: 400;
+    text-align: right;
+    text-transform: none;
+    margin: .625em 0 1.25em;
   }
 }
 
@@ -88,12 +109,6 @@ hr {
 ul,
 ol {
   padding: 0 0 0 2em;
-}
-
-code {
-  background: $code-background;
-  color: $dark-color;
-  padding: .125em .25em;
 }
 
 pre {

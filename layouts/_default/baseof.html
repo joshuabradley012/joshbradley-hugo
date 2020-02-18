@@ -6,8 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>{{ if isset .Params "seotitle" }}{{ .Params.seotitle }}{{ else }}{{ .Title }}{{ end }}</title>
-  {{ if .Description }}{{ with .Description }}<meta name="description" content="{{ . }}">{{ end }}{{ else }}{{ with .Summary }}<meta name="description" content="{{ . }}">{{ end }}{{ end }}
+  {{ $title := .Title }}
+  {{ if isset .Params "seotitle" }}
+    {{ $title = .Params.seotitle }}
+  {{ end }}
+
+  {{ $description := .Summary }}
+  {{ if .Description }}
+    {{ $description = .Description }}
+  {{ end }}
+
+  <title>{{ $title }}</title>
+  {{ with $description }}<meta name="description" content="{{ . }}">{{ end }}
   {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
   {{ with .Permalink }}<link rel="canonical" href="{{ . }}" />{{ end }}
 
@@ -15,9 +25,9 @@
   <meta itemprop="author" content="Josh Bradley" />
   <meta itemprop="url" content="https://joshbradley.me" />
 
-  {{ with .Title }}<meta property="og:title" content="{{ . }}" />{{ end }}
   <meta property="og:type" content="website" />
-  {{ with .Description }}<meta property="og:description" content="{{ . }}" />{{ end }}
+  {{ with $title }}<meta property="og:title" content="{{ . }}" />{{ end }}
+  {{ with $description }}<meta property="og:description" content="{{ . }}" />{{ end }}
   {{ with .Permalink }}<meta property="og:url" content="{{ . }}" />{{ end }}
   <meta property="og:image" content="{{ .Site.BaseURL }}images/og-logo.png" />
   <meta property="og:image:width" content="125" />
