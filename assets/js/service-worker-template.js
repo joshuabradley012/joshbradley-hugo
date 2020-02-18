@@ -1,6 +1,6 @@
 "use strict";
 
-const cache = 'v7';
+const cache = 'v8';
 
 const coreAssets = [
   './index.html',
@@ -117,8 +117,14 @@ function cacheThenUpdate(url) {
 }
 
 function cacheWithFallback(url) {
-  return caches.match(url)
-  .then(cacheResponse => {
-    return cacheResponse || fetch(url);
+  return caches.open(cache)
+  .then(cache => {
+    return cache.match(url)
+    .then(cacheResponse => {
+      return cacheResponse || fetch(url).then(networkResponse => {
+        cache.put(url, networkResponse.clone());
+        return networkResponse;
+      });
+    })
   })
 }
