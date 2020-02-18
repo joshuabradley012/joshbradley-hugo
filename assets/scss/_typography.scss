@@ -4,7 +4,7 @@ h3, .h3,
 h4, .h4,
 h5, .h5,
 h6, .h6 {
-  font-family: Helvetica, sans-serif;
+  font-family: $sub-font;
   font-weight: 700;
   line-height: 1.1;
 }
@@ -66,6 +66,12 @@ blockquote {
   margin: 1em 2em;
 }
 
+code {
+  background: $code-background;
+  color: $dark-color;
+  padding: .125em .25em;
+}
+
 data::after {
   content: ' (ID ' attr(value) ')';
   display: none;
@@ -73,6 +79,21 @@ data::after {
 
   &:hover {
     display: inline;
+  }
+}
+
+figure {
+  margin: 2em 0;
+}
+
+figcaption {
+  h4 {
+    color: $light-color;
+    font-size: .8em;
+    font-weight: 400;
+    text-align: right;
+    text-transform: none;
+    margin: .625em 0 1.25em;
   }
 }
 
@@ -91,10 +112,15 @@ ol {
 }
 
 pre {
-  background-color: #f0f0f0;
+  background: $code-background;
   border-radius: 0.263736em;
   overflow: scroll;
   padding: 1em;
+
+  code {
+    background: transparent;
+    padding: 0;
+  }
 }
 
 var {

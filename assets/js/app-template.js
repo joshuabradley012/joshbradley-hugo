@@ -1,5 +1,48 @@
 "use strict";
 
+var navToggle = document.getElementById('nav-toggle');
+navToggle.addEventListener('click', function() {
+  document.body.classList.toggle('nav-open');
+});
+
+{{ if eq hugo.Environment "production" }}
+
+if (navigator.serviceWorker) {
+
+  const sw = navigator.serviceWorker;
+  const channel = new MessageChannel();
+
+  const controlled = sw.controller;
+  const homepage = location.href === location.origin + '/';
+  const cached = getCookie('cached') === 'true';
+
+  if (controlled && !cached) {
+
+    const resp = new Promise( res => channel.port1.onmessage = res );
+    sw.controller.postMessage( 'update-cache', [ channel.port2 ] );
+    resp.then(e => {
+      if (e.data === 'done') {
+        setCookie('cached', 'true', 1);
+        if (homepage) {
+          updateMain();
+        }
+      }
+    });
+  }
+
+  // Register service worker after load to prioritize content
+  window.addEventListener('load', function() {
+    if (!controlled) {
+      sw.register('/service-worker.min.js', {updateViaCache: 'none'})
+      .then(function(registation){
+        if (!cached) {
+          setCookie('cached', 'true', 1);
+        }
+      });
+    }
+  });
+}
+
 function setCookie(name, value, days) {
   var expires = '';
   if (days) {
@@ -10,7 +53,7 @@ function setCookie(name, value, days) {
   document.cookie = name + '=' + (value || '') + expires + '; path=/';
 }
 
-function getCookie(name) {
+function getCookie() {
   var nameEQ = name + '=';
   var ca = document.cookie.split(';');
   for (var i = 0; i < ca.length; i++) {
@@ -21,37 +64,20 @@ function getCookie(name) {
   return null;
 }
 
-let navToggle = document.getElementById('nav-toggle');
-navToggle.addEventListener('click', function() {
-  document.body.classList.toggle('nav-open');
-});
-
-{{ if eq hugo.Environment "production" }}
-
-if (navigator.serviceWorker) {
-
-  let isHomepage = location.href === location.origin + '/';
-  let homepageCached = getCookie('homecached') === 'true';
-  let isControlled = navigator.serviceWorker.controller;
-
-  if (isControlled && !homepageCached) {
-    navigator.serviceWorker.controller.postMessage('updateHomepageCache');
-    setCookie('homecached', 'true', 1);
-
-    if (isHomepage) {
-      location.reload();
-    }
-  }
-
-  // Register service worker after load to prioritize content
-  window.addEventListener('load', function() {
-    if (!isControlled) {
-      navigator.serviceWorker.register('/service-worker.min.js', {updateViaCache: 'none'})
-      .then(function(registation){
-        if (!homepageCached) {
-          setCookie('homecached', 'true', 1);
-        }
-      });
+function updateMain() {
+  var existingMain = document.querySelector('.main');
+  fetch(location.href)
+  .then(function(response) {
+    return response.text();
+  }).then(function(text) {
+    try {
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(text, 'text/html');
+      var fetchedMain = doc.querySelector('.main');
+      var parent = existingMain.parentNode;
+      parent.replaceChild(fetchedMain, existingMain);
+    } catch (err) {
+      console.error(err);
     }
   });
 }

@@ -1,6 +1,6 @@
 "use strict";
 
-const cacheName = 'v6';
+const cache = 'v7';
 
 const coreAssets = [
   './index.html',
@@ -27,26 +27,28 @@ const pagesToCache = [
   {{ end }}
 ];
 
-let updateHomepageCache = true;
+let update = true;
 
-self.addEventListener('install', (event) => {
+self.addEventListener('install', e => {
   // Assets as dependency for install, the rest as non-blocking
-  event.waitUntil(
-    caches.open(cacheName).then(function(cache) {
-      updateHomepageCache = false;
+  e.waitUntil(
+    caches.open(cache)
+    .then(cache => {
+      update = false;
       cache.addAll(pagesToCache);
       return cache.addAll(coreAssets);
     })
   );
 });
 
-self.addEventListener('activate', event => {
+self.addEventListener('activate', e => {
   // Delete old caches
-  event.waitUntil(
-    caches.keys().then(function(keys) {
+  e.waitUntil(
+    caches.keys()
+    .then(keys => {
       Promise.all(
-        keys.map(function(key) {
-          if (key !== cacheName) {
+        keys.map(key => {
+          if (key !== cache) {
             return caches.delete(key);
           }
         })
@@ -55,53 +57,68 @@ self.addEventListener('activate', event => {
   );
 });
 
-self.addEventListener('message', (event) => {
-  if (event.data === 'updateHomepageCache') {
-    updateHomepageCache = true;
+self.addEventListener('message', e => {
+  if (e.data === 'update-cache' && e.ports) {
+    update = true;
+    e.ports[0].postMessage('done');
   }
 });
 
-self.addEventListener('fetch', (event) => {
-  const normalizedUrl = new URL(event.request.url);
-  normalizedUrl.search = '';
+self.addEventListener('fetch', e => {
+  const url = new URL(e.request.url);
+  url.search = '';
 
-  const isNavgation = event.request.mode === 'navigate';
-  const isFromOrigin = normalizedUrl.origin === location.origin;
-  const isHomepage = normalizedUrl.href === location.origin + '/';
+  const navigation = e.request.mode === 'navigate';
+  const origin = url.origin === location.origin;
+  const homepage = url.href === location.origin + '/';
 
-  // Network then update for homepage if it needs to be updated
-  if (isHomepage && isNavgation && updateHomepageCache) {
-    event.respondWith(
-      caches.open(cacheName).then(function(cache) {
-        return fetch(normalizedUrl).then(function(networkResponse) {
-          cache.put(normalizedUrl, networkResponse.clone());
-          updateHomepageCache = false;
-          return networkResponse;
-        }).catch(function() {
-          return cache.match(normalizedUrl);
-        });
-      })
+  if (homepage && navigation && update) {
+    e.respondWith(
+      networkThenUpdate(url)
     );
-  // Cache then update for pages "stale-while-revalidate"
-  } else if (isFromOrigin && isNavgation) {
-    event.respondWith(
-      caches.open(cacheName).then(function(cache) {
-        return cache.match(normalizedUrl).then(function(response) {
-          let fetchPromise = fetch(normalizedUrl).then(function(networkResponse) {
-            cache.put(normalizedUrl, networkResponse.clone());
-            return networkResponse;
-          });
-          return response || fetchPromise;
-        });
-      })
+  } else if (origin && navigation) {
+    e.respondWith(
+      cacheThenUpdate(url)
     );
-  // Cache first, falling back to network for static assets, no updating
-  } else if (isFromOrigin) {
-    event.respondWith(
-      caches.match(normalizedUrl).then(function(response) {
-        return response || fetch(event.request);
-      })
+  } else if (origin) {
+    e.respondWith(
+      cacheWithFallback(url)
     );
   }
 });
 
+function networkThenUpdate(url) {
+  return caches.open(cache)
+  .then(cache => {
+    return fetch(url)
+    .then(networkResponse => {
+      cache.put(url, networkResponse.clone());
+      update = false;
+      return networkResponse;
+    }).catch(() => {
+      return cache.match(url);
+    });
+  });
+}
+
+function cacheThenUpdate(url) {
+  return caches.open(cache)
+  .then(cache => {
+    return cache.match(url)
+    .then(cacheResponse => {
+      let fetchPromise = fetch(url).
+      then(networkResponse => {
+        cache.put(url, networkResponse.clone());
+        return networkResponse;
+      });
+      return cacheResponse || fetchPromise;
+    });
+  });
+}
+
+function cacheWithFallback(url) {
+  return caches.match(url)
+  .then(cacheResponse => {
+    return cacheResponse || fetch(url);
+  })
+}
