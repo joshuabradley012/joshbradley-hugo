@@ -1,6 +1,6 @@
 "use strict";
 
-const cache = 'v9';
+const cache = 'v10';
 
 const coreAssets = [
   './index.html',

@@ -139,7 +139,6 @@ $main-font: Georgia, serif;
 $sub-font: Helvetica, Arial, sans-serif;
 $mono-font: Courier, monospace;
 
-$offset: 35.5%;
 $content-width: 46rem;
 {{< / highlight >}}
 
