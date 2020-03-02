@@ -3,18 +3,18 @@ title: "Is It Bad Practice to Extend `this` in JavaScript classes?"
 date: 2020-03-01T20:35:56-08:00
 draft: false
 type: "post"
-summary: "What is the better practice? To set a property on 'this', or to extend 'this' using 'Object.assign'."
+summary: "What is better practice? To set a property on 'this', or to extend 'this' using 'Object.assign'. I see merits for both."
 categories:
 - Web Development
 tags:
 - JavaScript
 ---
 
-What is better practice? To set properties on `this`, or to extend `this` using `Object.assign`.
+What is better practice? To set properties on `this`, or to extend `this` using `Object.assign`. I see merits for both.
 
-I see merits for both. Setting properties on `this` results in better immutability and less, expensive `Object.assign` calls. Extending `this` leads to more elegant classes that easier to understand, at the danger of collisions.
+Setting properties on `this` results in better immutability and less, expensive `Object.assign` calls.
 
-I'm leaning towards setting properties instead of extending `this`. It's safer and more efficient, even if it is less elegant.
+Extending `this` leads to more elegant classes that are easier to understand. But it comes with the danger of collisions.
 
 ## Setting properties
 
@@ -90,8 +90,6 @@ console.log(item) // Item { props: { a: 1, b: 2 }, has: ƒ () }
 item.hasAll({ a: 1, c: 3 }) // false
 item.hasAll({ a: 1, b: 2 }) // true
 {{< / highlight >}}
-
----
 
 ## Extending `this`
 
@@ -198,7 +196,9 @@ console.log(item) // SaferItem { place: 'Fruit Stand', has: 'Apples' }
 
 Which actually seems to be a better implementation. But now I need to have this awareness when developing classes.
 
-There's the crux. Extending `this` creates elegant classes, but is dangerous in the scope of larger projects. Collisions will lead to bugs. Setting properties is the preferred method.
+---
+
+The crux of extending `this` is its danger. Having objects closer to vanilla JavaScript is beautiful. But collisions will lead to bugs. Because of that, setting properties is now my preferred method.
 
 What do you think?
 
