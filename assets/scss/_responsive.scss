@@ -1,4 +1,4 @@
-@media (max-width: 50rem) {
+@media (max-width: 62rem) {
 
   html {
     padding: 0 15px;
@@ -28,6 +28,7 @@
     padding: 0;
     position: static;
     text-align: left;
+    transform: none;
 
     .inner {
       background: $white;

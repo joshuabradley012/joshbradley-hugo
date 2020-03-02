@@ -3,9 +3,10 @@
   left: auto;
   padding: 24px 40px;
   position: fixed;
-  right: 100% - $offset;
+  right: 50%;
   text-align: center;
   top: 44px;
+  transform: translateX(calc(-100% - 40px));
 
   .social {
     margin-top: 2em;
@@ -15,9 +16,9 @@
 .main,
 .footer {
   box-sizing: content-box;
-  margin: 80px auto 4rem $offset;
+  margin: 80px auto 4rem;
   max-width: $content-width;
-  padding: 0 0 0 40px;
+  padding: 0 40px;
 }
 
 .main {

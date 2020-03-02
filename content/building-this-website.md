@@ -12,7 +12,7 @@ tags:
 - Hugo
 ---
 
-This website is <em>fast</em>. The homepage loads in 50ms and is only 9KB (after GZIP and caching).
+This website is _fast_. The homepage loads in 50ms and is only 9KB (after GZIP and caching).
 
 Google Analytics is 17.7KB, this {{< externallink "PNG" "https://abs.twimg.com/responsive-web/web/heart_animation.5c9f8e84.png" >}} Twitter uses is 10KB, and blinking takes 100-400ms.
 
@@ -20,7 +20,7 @@ There were sacrifices. But it is an example of what websites could be in stark c
 
 ## Why speed matters
 
-Reality has no latency. Things <em>feel</em> wrong when there is a delay between our actions and their response. Speed is the most important aspect of user experience.
+Reality has no latency. Things _feel_ wrong when there is a delay between our actions and their response. Speed is the most important aspect of user experience.
 
 But as computers have become more powerful, they haven't gotten faster. They're bloated.
 
@@ -38,9 +38,9 @@ While I wasn't as extreme, this website is pretty close. And I love it.
 
 There are no frameworks, web fonts, or libraries on this website. Everything was handwritten. If it didn't improve the user experience, it wasn't included.
 
-In particular, there isn't any analytics on this page. If I want to know traffic metrics and snoop IP addresses, I can check the server logs. I'm not going to invade your privacy with an inconvenient script. Or feed more data to our Google overlord.
+In particular, there aren't any analytics on this page. If I want to know traffic metrics and snoop IP addresses, I can check the server logs. I'm not going to invade your privacy with an inconvenient script. Or feed more data to our Google overlord.
 
-I'm inspired by {{< externallink "Paul Graham" "http://www.paulgraham.com/articles.html" >}} and {{< externallink "John Gruber's" "https://daringfireball.net/" >}} simplicity. {{< externallink "Seth Godin" "https://seths.blog/" >}}, {{< externallink "Butterick's Practical Typography" "https://practicaltypography.com/" >}}, and {{< externallink "The New York Times" "https://www.nytimes.com/" >}} provided examples of beautiful typography. I hoped to capture their mastery.
+I'm inspired by {{< externallink "Paul Graham" "http://www.paulgraham.com/articles.html" >}} and {{< externallink "John Gruber's" "https://daringfireball.net/" >}} simplicity. I learned typography from {{< externallink "Seth Godin" "https://seths.blog/" >}}, {{< externallink "Butterick's Practical Typography" "https://practicaltypography.com/" >}}, and {{< externallink "The New York Times" "https://www.nytimes.com/" >}}. I hoped to capture their mastery.
 
 This design intends to last.
 
@@ -230,7 +230,7 @@ The pattern goes like this.
 You can find the source code in the {{< externallink "repo" "https://github.com/joshuabradley012/joshbradley-hugo/tree/master/assets/js" >}}.
 
 
-### AWS Hosting
+### AWS hosting
 
 This is an S3 bucket served through Cloudfront routed through a Route53 domain. It sounds simple but learning AWS is intimidating. Their platform is dense and prickly.
 
@@ -248,7 +248,7 @@ I also created an email with <abbr title="Simple Email Service">SES</abbr> that 
 
 The only expense is my domain name. When I start to get traffic, I can scale for cheap.
 
-## The Result
+## The result
 
 This page gets a perfect 100 for performance in Chrome Lighthouse.
 
