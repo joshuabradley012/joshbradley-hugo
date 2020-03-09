@@ -5,7 +5,7 @@ draft: false
 type: "post"
 summary: "What is better practice? To set a property on 'this', or to extend 'this' using 'Object.assign'. I see merits for both."
 categories:
-- Web Development
+- Programming
 tags:
 - JavaScript
 ---

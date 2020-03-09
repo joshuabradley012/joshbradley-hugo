@@ -3,10 +3,9 @@
   left: auto;
   padding: 24px 40px;
   position: fixed;
-  right: 50%;
+  right: calc(50% + 40px + #{$content-width / 2});
   text-align: center;
   top: 44px;
-  transform: translateX(calc(-100% - 39px));
 
   .social {
     margin-top: 2em;
