@@ -7,11 +7,6 @@ draft: false
 
 You can say <a href="mailto:hello@joshbradley.me">hello@joshbradley.me</a>
 
-Or find me on:
-* {{< externallink "Github" "https://github.com/joshuabradley012" >}}
-* {{< externallink "Twitter" "https://twitter.com/josh_b_rad" >}}
-* {{< externallink "LinkedIn" "https://www.linkedin.com/in/joshua-bradley-925678b1/" >}}
-
 <pre style="max-height: 20rem;">
 <code>-----BEGIN PGP PUBLIC KEY BLOCK-----
 

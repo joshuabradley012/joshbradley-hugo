@@ -67,9 +67,9 @@ blockquote {
 }
 
 code {
-  background: $code-background;
   color: $dark-color;
-  padding: .125em .25em;
+  font-family: $mono-font;
+  font-size: 1em;
 }
 
 data::after {
@@ -103,7 +103,7 @@ del {
 
 hr {
   border: 0;
-  border-top: 1px solid $dark-border;
+  border-top: 1px solid $light-border;
 }
 
 ul,
@@ -112,10 +112,11 @@ ol {
 }
 
 pre {
-  background: $code-background;
-  border-radius: 0.263736em;
+  background: $pre-background !important;
+  // border: 1px solid $light-border;
+  // border-radius: 0.263736em;
   overflow: scroll;
-  padding: 1em;
+  padding: 0;
 
   code {
     background: transparent;

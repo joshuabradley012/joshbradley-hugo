@@ -3,7 +3,7 @@
   left: auto;
   padding: 24px 40px;
   position: fixed;
-  right: 100% - $offset;
+  right: calc(50% + 40px + #{$content-width / 2});
   text-align: center;
   top: 44px;
 
@@ -15,9 +15,9 @@
 .main,
 .footer {
   box-sizing: content-box;
-  margin: 80px auto 4rem $offset;
+  margin: 44px auto 4rem;
   max-width: $content-width;
-  padding: 0 0 0 40px;
+  padding: 0 40px;
 }
 
 .main {

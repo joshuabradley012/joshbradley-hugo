@@ -15,6 +15,10 @@ Adobe Analytics Workspace is the most powerful analytics tool I have ever used. 
 
 I hope I can save you some pain.
 
-A successful implementation maps business needs to digital datapoints that are effeciently and accurately captured.
+The foundation to a succsesful implementation is a plan. Mapping business needs to digital datapoints that you know where to capture and how. Doing this will ensure you are tracking everything you need, accurately.
 
-It is essential to start with a well defined <abbr title="Business Requirements Document - Solution Design Reference">BRD-SDR</abbr> for planning and documentation. Here is the template I used: {{< externallink "BRD-SDR Template" "https://docs.google.com/spreadsheets/d/1dHQw4Y1ThgnYr_dg3kFQvqR0ePucwFc15Ai5WOD2DiA/edit?usp=sharing" >}}
+Here is a redacted version of my final implementation: {{< externallink "BRD-SDR Template" "https://docs.google.com/spreadsheets/d/1dHQw4Y1ThgnYr_dg3kFQvqR0ePucwFc15Ai5WOD2DiA/edit?usp=sharing" >}}
+
+Starting with a well defined <abbr title="Business Requirements Document - Solution Design Reference">BRD-SDR</abbr> will save you time navigating Adobe Launch's complex structure, and document your steps for data engineers to follow.
+
+
