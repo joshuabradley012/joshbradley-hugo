@@ -169,7 +169,7 @@ new Item({ place: 'Fruit Stand', has: 'Apples' })
 // Uncaught TypeError: this.has.bind is not a function
 {{< / highlight >}}
 
-Well... Damn. 
+Well... Damn.
 
 I could refactor my code to avoid bound methods.
 
@@ -201,5 +201,3 @@ Which actually seems to be a better implementation. But now I need to have this 
 The crux of extending `this` is its danger. Having objects closer to vanilla JavaScript is beautiful. But collisions will lead to bugs. Because of that, setting properties is now my preferred method.
 
 What do you think?
-
-For further discussion, check out the {{< externallink "Stackoverflow" "https://stackoverflow.com/questions/60482201/is-it-a-bad-practice-to-extend-overwrite-this-with-object-assign" >}} thread.
