@@ -10,15 +10,17 @@ tags:
 - LISP
 ---
 
-Eric Raymond famously wrote that understanding LISP is a "profound enlightenment experience." Paul Graham describes it as the destination "where languages are heading." Alan Perlis wrote that "Lisp is for building organisms – imposing, breathtaking, dynamic structures."
+Paul Graham describes LISP as the convergence point for all programming languages. His observation is that as languages mature, the average language continues to slide towards LISP. Therefore understanding LISP is to understand the fundamental model of modern programming.
 
-I decided to go directly to the source in search of this sense of understanding. John McCarthy's original paper {{< externallink "Recursive Functions of Symbolic Expressions and Their Computation by Machine" "http://www-formal.stanford.edu/jmc/recursive/recursive.html" >}} laid the foundation of LISP as we know it.
+Others tout LISP as necessary to becoming a better programmer. Eric Raymond went so far as to say that understanding LISP is a "profound enlightenment experience."
 
-It is a dense, exploratory article written by a genius for mathematicians. Not a digestible piece of documentation meant to guide others in understanding LISP. I struggled through each sentence before stumbling upon Paul Graham's article {{< externallink "The Roots of LISP" "http://www.paulgraham.com/rootsoflisp.html" >}}. His clarity helped guide me to that elusive sense of understanding.
+In search of this understanding, I went to the source. John McCarthy's original paper {{< externallink "Recursive Functions of Symbolic Expressions and Their Computation by Machine" "http://www-formal.stanford.edu/jmc/recursive/recursive.html" >}} that laid the foundation for LISP.
 
-But it wasn't until I wrote this article that I gained a full grasp of the language and it's power. I'm leaving my steps here for any who have gone down a similar path and still struggle to understand.
+It is a dense, exploratory paper written by a genius for early computer scientists. Not a digestible piece of documentation meant to guide others to understanding LISP. I struggled through each sentence before stumbling upon Paul Graham's article {{< externallink "The Roots of LISP" "http://www.paulgraham.com/rootsoflisp.html" >}}. His clarity helped guide me to that elusive sense of understanding.
 
-Keeping true to Paul Graham, I implemented this version of LISP in {{< externallink "Arc" "http://www.arclanguage.org/tut.txt" >}}.
+But it wasn't until I wrote this article that I gained a full grasp of the language and its power. I'm leaving my steps here for any who have gone down a similar path and still struggle to understand.
+
+Keeping true to Paul Graham, I implemented this version of LISP in {{< externallink "Arc" "http://www.arclanguage.org/tut.txt" >}}. You can find the full code {{< externallink "here" "https://gist.github.com/joshuabradley012/d8e86fcbabac04b230b37e0f173259f5" >}}.
 
 ## List expressions
 
@@ -33,7 +35,7 @@ eq[x; x]
 ; returns t
 ```
 
-However, the computer they used to first implement LISP was missing square brackets, so everything was written in S-expression notation. Dots were omitted and the `nil` that terminates lists are assumed.
+However, the computer they used to first implement LISP was missing square brackets, so everything was written in S-expression notation.<sup><a href="#ref:1">1</a></sup> Dots were omitted and the `nil` that terminates lists is assumed.
 
 So the above M-expression becomes
 
@@ -46,19 +48,21 @@ which became the standard syntax for LISP, making the language syntactically uni
 
 ## Elementary functions
 
-There are very few elementary functions necessary to make LISP a complete language. Specifically, there are only 5. Many complexities, such as memory allocation and garbage collection, are handled by the compiler.
+There are very few elementary functions necessary to make LISP a complete language. Many complexities, such as memory allocation and garbage collection, are handled by the compiler.
 
-A brief introduction to the syntax of LISP is helpful because some aspects are not intuitive. In particular, quotes and inside-out evaluation are the most unique aspects of LISP.
+A brief introduction to the syntax of LISP is helpful because some aspects are not intuitive. In particular, quotes and inside-out evaluation.
 
 Quotes are necessary for LISP because there is no separation of data and code. Sequences of characters can be interpreted as variables or values depending on their context. Quoting characters solves this by forcing a literal interpretation of values.
 
 Without quote, `(eq x x)` will attempt to find the defined value of `x` and throw an error if not found. While `(eq 'x 'x)` returns `t`. Keep in mind this is shorthand for `(eq (quote x) (quote x))`.
 
-Inside-out interpretation feels very unnatural because we are trained to read left-to-right, even in programming languages. When reading expressions such as `(car (cdr '((a b) (c d))))` you might expect `b` to return. However, `cdr` will be evaluated first and the expression will return `c`.
+Inside-out interpretation feels very unnatural because we are trained to read left-to-right, even in programming languages. When reading expressions such as `(outer (inner '(a b)))` you might expect `outer` to be evaluated first. However, `inner` will be the first to evaluate.
+
+Armed with this basic understanding, you're ready for the 5 elementary functions necessary for LISP.
 
 ### `atom`
 
-Checks if x is a single symbol.
+Checks if an element is a single symbol.
 
 ```
 (atom 'x)
@@ -280,9 +284,9 @@ Gets values from key-value pairs, where the first argument is the key and the se
 
 ## The universal function
 
-The true power of LISP is its ability to compile itself from a few building blocks. As John McCarthy did, we will be defining `_eval` which can compile LISP in LISP.
+The true power of LISP is its ability to evaluate itself from a few building blocks. As John McCarthy did, we will be defining `_eval` which can evaluate LISP in LISP.
 
-This is the most surprising and powerful aspect of the language. With 5 primitives and 12 functions, you have the building blocks to build an interpreter for any language you wish to create.
+This is the most surprising and powerful aspect of the language. With 5 primitives and 12 functions, you have the building blocks to build an interpreter.
 
 ```
 (def _eval (e a)
@@ -320,13 +324,13 @@ This is the most surprising and powerful aspect of the language. With 5 primitiv
             (_evlis (cdr m) a))))
 ```
 
-When using `_eval` the syntax of the contained expressions will be specific to the compiler. We aren't writing in Arc anymore, but a completely new language. The primitive form of LISP.
+When using `_eval` the syntax of the contained expressions will be specific to the interpreter. We aren't writing in Arc anymore, but a completely new language. The primitive form of LISP.
 
 Even if you have been following along, there is a lot to break down here, so let's step through it.
 
 ### Interpreting elementary functions
 
-`_eval` takes `e` as the expression to be evaluated and `a` as a list of pairs to be referenced by `e`.
+`_eval` takes `e` as the expression to be evaluated and `a` as a list of pairs that will be referenced by `e`.
 
 If `e` is atomic `_assoc` is called to return the value that matches the key `e` in `a`.
 
@@ -340,7 +344,7 @@ If `e` is atomic `_assoc` is called to return the value that matches the key `e`
 
 If `e` is not atomic, then `_eval` checks if the first element of `e` is one of the elementary functions.
 
-In the case of `quote` the symbol following it is returned literally.
+In the case of `quote` the symbol following `quote` is returned literally.
 
 ```
 (_eval '(quote x) nil)
@@ -353,7 +357,7 @@ In the case of `quote` the symbol following it is returned literally.
 
 With other elementary functions, `e` takes the form `(function key)`, where `key` is used to get a value from `a` that will be evaluated by `function`.
 
-The following use of `_eavl` is equivalent to the much simpler `(atom 'y)` but it is core to understanding the `_eval` function. Notice how `x` is being used to reference the value in the second parameter, `a`.
+The following use of `_eval` is equivalent to the much simpler `(atom 'y)` but it is core to understanding the `_eval` function. Notice how `x` is being used to reference the value in the second parameter, `a`.
 
 ```
 (_eval '(atom x) '((x y)))
@@ -405,20 +409,20 @@ These are the steps `_eval` takes to evaluate `atom`.
       (_evcon (cdr c) a)))
 
 (_evcon '(((atom c1) a1) ((atom c2) a2) ((atom c3) a3))
-        '((c1 (a b)) (a1 no)
-          (c2 (c d)) (a2 nope)
-          (c3 e)     (a3 hello)))
-; returns hello
+        '((c1 (a b)) (a1 not_atom)
+          (c2 (c d)) (a2 still_not_atom)
+          (c3 e)     (a3 is_atom)))
+; returns is_atom
 ```
 
 Here is the same expression using `_eval`.
 
 ```
 (_eval '(cond ((atom c1) a1) ((atom c2) a2) ((atom c3) a3))
-       '((c1 (a b)) (a1 no)
-         (c2 (c d)) (a2 nope)
-         (c3 e)     (a3 hello)))
-; returns hello
+       '((c1 (a b)) (a1 not_atom)
+         (c2 (c d)) (a2 still_not_atom)
+         (c3 e)     (a3 is_atom)))
+; returns is_atom
 ```
 
 ### Interpreting `label` and `lambda` functions
@@ -436,7 +440,7 @@ If `e` is atomic but isn't an elementary function, it must be a `label` or `lamb
 ; returns not_atom
 ```
 
-Note that `(quote t)` is used here as an explicit `else` condition. Arc handles these cases gracefully, but because we are bound to the rules of the compiler we must use this syntax.
+Note that `(quote t)` is used here as an explicit `else` condition. Arc handles these cases gracefully, but because we are bound to the rules of the interpreter we must use this syntax.
 
 During evaluation, the above `lambda` expression becomes
 
@@ -463,7 +467,7 @@ Here, McCarthy defines `ff` as a function to return the first atom in a list. It
 ; returns a
 ```
 
-When `_eval` finds `label`, it will store that function in `a` to be used later. It will also begin evaluating the `lambda` function defined by `label`. The above expression becomes
+When `_eval` finds `label`, it will store that function in `a` to be used later. It will also begin evaluating the `lambda` function defined by `label`. During evaluation, the above expression becomes
 
 ```
 (_eval '((lambda (x)
@@ -482,7 +486,7 @@ The full evaluation is, as McCarthy puts it, "an activity better suited to elect
 
 Using `_eval` in its raw form is rather verbose, so McCarthy defined `_apply` as a wrapper to `_eval` that helps keep expressions shorter and easier to understand.
 
-This will take the parameters for `_eval` and wrap them like `(quote (param))`. It also applies args directly to the function.
+This will take the parameters for `_eval` and wrap them like `(quote (param))`. It also applies arguments directly to the function.
 
 ```
 (def _appq (m)
@@ -518,16 +522,18 @@ which calls `_eval` as
 
 The ability to define new languages, and monitor their internal state makes LISP an excellent language for exploration and experimentation.
 
-Gone is the magic of compilation and executables. You can see every step of evaluation for yourself. That is what makes the exercise of stumbling through the archaic syntax so fulfilling.
+Gone is the magic of compilation and executables. You can see every step of evaluation for yourself. That makes the exercise of stumbling through the archaic syntax fulfilling.
 
-I don't see myself using LISP in production any time soon. However, I will continue to use it as a tool for broadening my understanding of low-level programming.
+I don't see myself using LISP in production. However, I will continue to use it as a tool for broadening my understanding of low-level programming.
 
 The next step for me is to understand how to implement a compiler that would convert this to machine code. I plan to read {{< externallink "Structure and Interpretation of Computer Programs" "https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-1.html" >}} to do so.
 
-Additionally, I would like how to modernize this interpreter. As Paul Graham wrote, "The language he [John McCarthy] wrote in 1960 was missing a lot. It has no side-effects, no sequential execution, no practical numbers, and dynamic scope."
-
-But this can be addressed.
+Additionally, I would like to modernize this interpreter. As Paul Graham wrote, "The language he [John McCarthy] wrote in 1960 was missing a lot. It has no side-effects, no sequential execution, no practical numbers, and dynamic scope." But this can be addressed.
 
 Paul Graham hints at Steele and Sussman's article, {{< externallink "The Art of the Interpreter" "https://wiki.c2.com/?TheArtOfTheInterpreter" >}} without getting into specifics. Perhaps I'll go through these in another article.
 
-Until then, happy exploring.
+Digging through the history of programming, you'll find LISP's influence everywhere. The exercise of adjusting to its syntax is a worhty pursuit in itself, but developing that true sense of understanding opens a window into the inner workings of all languages. That is the purpose of understanding LISP.
+
+---
+
+<ol><li id="ref:1">Sinclair Target. "How Lisp Became God's Own Programming Language", Two Bit History, October 14, 2018, accessed April 3, 2020, {{< externallink "https://twobithistory.org/2018/10/14/lisp.html" "https://twobithistory.org/2018/10/14/lisp.html" >}}</li></ol>

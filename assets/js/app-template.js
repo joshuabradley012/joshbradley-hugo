@@ -19,9 +19,8 @@ if (navigator.serviceWorker) {
   const cached = getCookie('cached') === 'true';
 
   if (controlled && !cached) {
-
-    const resp = new Promise( res => channel.port1.onmessage = res );
-    sw.controller.postMessage( 'update-cache', [ channel.port2 ] );
+    const resp = new Promise(res => channel.port1.onmessage = res);
+    sw.controller.postMessage('update-cache', [ channel.port2 ]);
     resp.then(e => {
       if (e.data === 'done') {
         setCookie('cached', 'true', 1);
@@ -49,7 +48,7 @@ function setCookie(name, value, days) {
   var expires = '';
   if (days) {
     var date = new Date();
-    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 100));
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
     expires = '; expires=' + date.toUTCString();
   }
   document.cookie = name + '=' + (value || '') + expires + '; path=/';

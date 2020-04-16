@@ -1,6 +1,6 @@
 "use strict";
 
-const cache = 'v13';
+const cache = 'v14';
 
 const coreAssets = [
   './index.html',
@@ -106,8 +106,8 @@ function cacheThenUpdate(url) {
   .then(cache => {
     return cache.match(url)
     .then(cacheResponse => {
-      let fetchPromise = fetch(url).
-      then(networkResponse => {
+      let fetchPromise = fetch(url)
+      .then(networkResponse => {
         cache.put(url, networkResponse.clone());
         return networkResponse;
       });
@@ -121,7 +121,8 @@ function cacheWithFallback(url) {
   .then(cache => {
     return cache.match(url)
     .then(cacheResponse => {
-      return cacheResponse || fetch(url).then(networkResponse => {
+      return cacheResponse || fetch(url)
+      .then(networkResponse => {
         cache.put(url, networkResponse.clone());
         return networkResponse;
       });

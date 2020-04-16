@@ -7,7 +7,7 @@ type: "post"
 description: "Hugo is a powerful site generator, here is how I built in schema markup, clean scss, and a ServiceWorker."
 summary: "This site is tiny and powerful, featuring schema markup and ServiceWorkers. Here is what I learned while building it."
 categories:
-- Programming
+- Web Development
 tags:
 - Hugo
 ---
