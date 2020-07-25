@@ -532,7 +532,7 @@ Additionally, I would like to modernize this interpreter. As Paul Graham wrote, 
 
 Paul Graham hints at Steele and Sussman's article, {{< externallink "The Art of the Interpreter" "https://wiki.c2.com/?TheArtOfTheInterpreter" >}} without getting into specifics. Perhaps I'll go through these in another article.
 
-Digging through the history of programming, you'll find LISP's influence everywhere. The exercise of adjusting to its syntax is a worhty pursuit in itself, but developing that true sense of understanding opens a window into the inner workings of all languages. That is the purpose of understanding LISP.
+Digging through the history of programming, you'll find LISP's influence everywhere. The exercise of adjusting to its syntax is a worthy pursuit in itself, but developing that true sense of understanding opens a window into the inner workings of all languages. That is the purpose of understanding LISP.
 
 ---
 

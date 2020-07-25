@@ -1,7 +1,7 @@
 ---
 title: "Adobe Analytics Data Source API with Visitor IDs"
 date: 2020-04-13T16:58:13-07:00
-draft: true
+draft: false
 description: "Enhance your data using Adobe Analytics Datasource API to attach external data points to your visitors."
 summary: "Enhance your data using Adobe Analytics Datasource API to attach external data points to your visitors."
 type: "post"
@@ -385,12 +385,12 @@ def get_datasource_id():
   data = {
     'reportSuiteID': 'REPORT_SUITE_ID',
   }
-  get_adobe_1_4('?method=DataSources.UploadData', json.dumps(data))
+  get_adobe_1_4('?method=DataSources.Get', json.dumps(data))
 {{< / highlight >}}
 
 `json.dumps` is used to format the data correctly even though the request is made using `data` instead of `json`. Thanks for that Adobe.
 
-Anyways, that's it. Now you can upload your file!
+Anyways, that function will return a JSON object that contains the report suite ID. Now you can upload your file!
 
 {{< highlight python >}}
 def api_upload_adobe_datasource():
