@@ -2,7 +2,7 @@
   border-right: 1px solid $dark-border;
   left: auto;
   padding: 24px 40px;
-  position: fixed;
+  position: absolute;
   right: calc(50% + 40px + #{$content-width / 2});
   text-align: center;
   top: 44px;

@@ -84,6 +84,7 @@ data::after {
 
 figure {
   margin: 2em 0;
+  text-align: center;
 }
 
 figcaption {
@@ -111,6 +112,10 @@ ol {
   padding: 0 0 0 2em;
 }
 
+mjx-container {
+  overflow: scroll;
+}
+
 pre {
   background: $pre-background !important;
   // border: 1px solid $light-border;
@@ -122,6 +127,11 @@ pre {
     background: transparent;
     padding: 0;
   }
+}
+
+strong {
+  font-family: $sub-font;
+  font-size: .95em;
 }
 
 var {
