@@ -4,6 +4,7 @@ date: 2020-07-25T16:27:50-07:00
 draft: false
 description: "Simulating object collisions is a rewarding way to learn the basics of HTML canvas and physics simulation."
 summary: "Simulating object collisions is a rewarding way to learn the basics of HTML canvas and physics simulation."
+ogimage: "images/colliding-balls.png"
 type: "post"
 categories:
 - Programming
