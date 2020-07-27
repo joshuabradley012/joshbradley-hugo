@@ -270,7 +270,7 @@ collidingBalls({
 
 _Satisfying, isn't it?_
 
-I used this project as my introduction to JavaScript's canvas and creating a physics simulation. It took me embarassingly long time to perfect so I figured it would be worth sharing.
+I used this project as my introduction to JavaScript's canvas and creating a physics simulation. It took me an embarrassingly long time to perfect so I figured it would be worth sharing.
 
 The source code can be found {{< externallink "here" "https://gist.github.com/joshuabradley012/bd2bc96bbe1909ca8555a792d6a36e04" >}}.
 
@@ -292,7 +292,7 @@ class Canvas {
 }
 ```
 
-With this we can add methods to draw specific shapes. In this case we'll only be drawing circles.
+With this, we can add methods to draw specific shapes. In this case, we'll only be drawing circles.
 
 ```javascript
 class Canvas {
@@ -365,7 +365,7 @@ canvas1.drawCircle(ball1);
 
 _Marvelous!_
 
-Next step is to add some motion to our canvas using an animation loop.
+The next step is to add some motion to our canvas using an animation loop.
 
 ## Adding animation
 
@@ -422,9 +422,9 @@ class Ball {
 }
 ```
 
-That will make adding motion, collisions, and mass a lot simpler. So about that animation loop, this is going to get complex. MDN's guide uses a very straightforward animation loop to achieve this. But I'm going to take a page out of {{< externallink "Eloquent JavaScript" "https://eloquentjavascript.net/16_game.html" >}} and implement a `State` class that provides some level of encapsulation. This makes it easier to add new shapes, or swap out the display with something like WebGL if needed.
+That will make adding motion, collisions, and mass a lot simpler. So about that animation loop, this is going to get complex. MDN's guide uses a very straightforward animation loop to achieve this. But I'm going to take a page out of {{< externallink "Eloquent JavaScript" "https://eloquentjavascript.net/16_game.html" >}} and implement a `State` class that provides some level of encapsulation. This makes it easier to add new shapes or swap out the display with something like WebGL if needed.
 
-`State` should keep track of which display is being used as well as which objects are present in the animation. Finally there needs to be a method that will update the position of each actor within each frame.
+`State` should keep track of which display is being used as well as which objects are present in the animation. Finally, there needs to be a method that will update the position of each actor within each frame.
 
 ```javascript
 class State {
@@ -776,7 +776,7 @@ __*Deep breath*__ it's time for the final hurdle, adding collisions.
 
 You've already seen a bit of collision detection in the last update we made to `Ball` where we are checking if the ball is hitting the walls of the canvas, and updating the velocity accordingly.
 
-However, in order to find if a ball is colliding with another ball, we have to check _every ball_ against _every ball_. This is very inefficient with an O(n<sup>2</sup>) runtime, but is the best solution outside of creating an elaborate matrix to represent coordinates. And it works well for less than 1000 objects.
+However, to find if a ball is colliding with another ball, we have to check _every ball_ against _every ball_. This is very inefficient with an O(n<sup>2</sup>) runtime but is the best solution outside of creating an elaborate matrix to represent coordinates. And it works well for less than 1000 objects.
 
 This can be achieved with a `for` loop on each `update` of `Ball`.
 
@@ -808,7 +808,7 @@ class Ball {
 }
 ```
 
-Because we are using a `Vector` to track the position of the ball, we can measure distance between two objects using the {{< externallink "magnitude" "https://en.wikipedia.org/wiki/Euclidean_vector#Length" >}} of the {{< externallink "difference" "https://en.wikipedia.org/wiki/Euclidean_vector#Addition_and_subtraction" >}} between both object's position. Remember position is measured at the object's center, so to detect when the edges collide, we need to check if that distance is less than both object's radius combined.
+Because we are using a `Vector` to track the position of the ball, we can measure the distance between two objects using the {{< externallink "magnitude" "https://en.wikipedia.org/wiki/Euclidean_vector#Length" >}} of the {{< externallink "difference" "https://en.wikipedia.org/wiki/Euclidean_vector#Addition_and_subtraction" >}} between both object's position. Remember position is measured at the object's center, so to detect when the edges collide, we need to check if that distance is less than both object's radius combined.
 
 For now, nothing very interesting happens when the balls collide, they just change color. But it's a start!
 
@@ -975,13 +975,13 @@ startButton4.addEventListener('click', animateOnClick4, { once: true });
 
 ## Calculating two-dimensional elastic collisions
 
-It's math time! We're going to be using ellastic collisions because I found it to be a fun animation without getting too complex with gravity and friction. But if that's what you're after, give it a shot.
+It's math time! We're going to be using elastic collisions because I found it to be a fun animation without getting too complex with gravity and friction. But if that's what you're after, give it a shot.
 
 Wikipedia has a fantastic animation showing what happens in a 2D collision on their {{< externallink "elastic collision" "https://en.wikipedia.org/wiki/Elastic_collision#Two-dimensional" >}} page.
 
 {{< figure src="/images/Elastischer_stoß_2D.gif" title="Two-dimensional elastic collision" >}}
 
-Mathmatically this can be defined as the following. Keep in mind there is an alternate formula that uses angles, but because we are using vectors, this is an easier formula to implement.
+Mathematically this can be defined as the following. Keep in mind there is an alternate formula that uses angles, but because we are using vectors, this is an easier formula to implement.
 
 $$
 \textbf v^{\prime}_1 = \textbf v_1 - \frac{2m_2}{m_1 + m_2} \frac{\langle \textbf v_1 - \textbf v_2, \textbf x_1 - \textbf x_2 \rangle}{\lVert \textbf x_1 - \textbf x_2 \rVert^2} (\textbf x_1 - \textbf x_2)
@@ -990,10 +990,10 @@ $$
 \textbf v^{\prime}_2 = \textbf v_2 - \frac{2m_1}{m_1 + m_2} \frac{\langle \textbf v_2 - \textbf v_1, \textbf x_2 - \textbf x_1 \rangle}{\lVert \textbf x_2 - \textbf x_1 \rVert^2} (\textbf x_2 - \textbf x_1)
 $$
 
-Where \\( \textbf v^{\prime} \\) is the resulting velocity vector, \\( \textbf v \\) is the current velocity, \\( m \\) is mass, and \\( \textbf x \\) is the position. The angle brackets \\( \langle \ldots \rangle \\) denote the {{< externallink "dot product" "https://www.khanacademy.org/math/linear-algebra/vectors-and-spaces/dot-cross-products/v/vector-dot-product-and-vector-length" >}} of the vector and the double vertical bars \\( \lVert \ldots \rVert \\) denote the magnitude, or {{< externallink "length" "https://www.khanacademy.org/math/linear-algebra/vectors-and-spaces/dot-cross-products/v/vector-dot-product-and-vector-length" >}} of the vector.
+Where \\( \textbf v^{\prime} \\) is the resulting velocity vector, \\( \textbf v \\) is the current velocity, \\( m \\) is mass, and \\( \textbf x \\) is the position. Angle brackets \\( \langle \ldots \rangle \\) denote the {{< externallink "dot product" "https://www.khanacademy.org/math/linear-algebra/vectors-and-spaces/dot-cross-products/v/vector-dot-product-and-vector-length" >}} of the vector and double vertical bars \\( \lVert \ldots \rVert \\) denote the {{< externallink "magnitude or length" "https://www.khanacademy.org/math/linear-algebra/vectors-and-spaces/dot-cross-products/v/vector-dot-product-and-vector-length" >}} of the vector.
 
 
-Currently `Ball` doesn't have a representation of its mass. Assuming a constant density, we can use the spherical area of the circle as our mass.
+Currently, `Ball` doesn't have a representation of its mass. Assuming a constant density, we can use the spherical area of the circle as our mass.
 
 ```javascript
 class Ball {
@@ -1046,11 +1046,11 @@ const collisionVector = (b1, b2) => {
 };
 ```
 
-It's worth bringing attention to how immutability makes this possible. We can perform multiple operations on the same vector without changing it's properties, while returning new vectors that can be used for chaining.
+It's worth bringing attention to how immutability makes this possible. We can perform multiple operations on the same vector without changing it's properties while returning new vectors that can be used for chaining.
 
 Now we can use this in the `update` method of `Ball`. However, there is another issue we need to resolve. We can't update velocities one at a time because the current velocity of both actors is necessary to determine their new velocities. And if we update both actor's velocity now, the velocity will be updated twice because every actor checks every actor.
 
-So we need a way to update both actors together, but only update them once. There is likely a better way, but what I came up with is creating an ID for each collision and keeping track of those IDs in an array so we can skip them in the current update. The collision ID is composed of the object ID and update ID.
+So we need a way to update both actors together but only update them once. There is likely a better way, but what I came up with is creating an ID for each collision and keeping track of those IDs in an array so we can skip them in the current update. The collision ID is composed of the object ID and update ID.
 
 We already added an update ID to `State` so let's add an object ID to `Ball` as well as a collisions array. These are the pieces we need to calculate collisions in `Ball.update` so let's update that as well.
 
@@ -1114,7 +1114,7 @@ class Ball {
 }
 ```
 
-__*Phew*__ that was a big update. Time to kick the tires.
+__*Phew*__, that was a big update. Time to kick the tires.
 
 ```javascript
 const display = new Canvas();
@@ -1281,7 +1281,7 @@ runAnimation(time => {
 });
 </script>
 
-Now that is _awesome_. But unfortunately we're not quite done. There are some edge cases we need to deal with.
+Now that is _awesome_. But unfortunately, we're not quite done. There are some edge cases we need to deal with.
 
 ## Resolve bugs
 
@@ -1293,7 +1293,7 @@ Here's our TODO list:
 
 The first issue of wall collisions is relatively simple. We just need to give the position update an upper and lower bound based on the canvas walls.
 
-For the second issue, you're likely wondering what a sticky collision is. As the description suggests, there are moments when to objects overlap and stick to each other. This leads to a continuous collision update that normally reults in a frantic spiraling. It's an issue that only arises in very specific conditions, but becomes quite common with 10+ balls in the frame.
+For the second issue, you're likely wondering what a sticky collision is. As the description suggests, there are moments when two objects overlap and stick to each other. This leads to a continuous collision update that normally results in a frantic spiraling. It's an issue that only arises in very specific conditions, but becomes quite common with 10+ balls in the frame.
 
 Here is an example of a sticky collision (if you don't see it try refreshing the page, they separate over time).
 
@@ -1324,15 +1324,15 @@ runAnimation(time => {
 });
 </script>
 
-The solution I implemented is a simple bandaid. I check for collisions in the next frame and update the current frame as if they had collided. This way the objects never get a chance to overlap. However they never get a chance to collide either. Thankfully, the effect is barely noticable.
+The solution I implemented is a simple bandaid. I check for collisions in the next frame and update the current frame as if they had collided. This way the objects never get a chance to overlap. However, they never get a chance to collide either. Thankfully, the effect is barely noticeable.
 
-However, in pursuit of a better solution, I looked into calculating the amount of overlap and removing that distance from the current position before adding the new velocity. And it worked in a small environment, but once again issue arose when there were 10+ balls in the simulation. I'm not sure if this is due to float precision, or balls backing up into another.
+In pursuit of a better solution, I looked into calculating the amount of overlap and removing that distance from the current position before adding the new velocity. And it worked in a small environment, but once again issue arose when there were 10+ balls in the simulation. I'm not sure if this is due to float precision, or balls backing up into another.
 
 Wall squeezes occur when a ball hits the wall and another ball at the same time. I don't have a perfect solution for this. If wall collisions are calculated first, velocity is lost. If they are calculated after, velocity is gained. This is due to the bounding condition we created for wall collisions where the position is stopped exactly when the edge touches the wall. However, if I remove this bounding condition, objects can get stuck against the wall.
 
 I decided to go with the solution that loses velocity because it looks the best with animations that run for a long time.
 
-Finally because we are keeping track of each collision in each ball, it can quickly overwhelm memory. An easy fix is to trim down the size of the array at a certain limit. I chose 10 as the limit because I have a hard time thinking of a situation where a ball will simulaneously collide with 10 other balls. However, this could be adjusted depending on the needs.
+Finally, because we are keeping track of each collision in each ball, it can quickly overwhelm memory. An easy fix is to trim down the size of the array at a certain limit. I chose 10 as the limit because I have a hard time thinking of a situation where a ball will simultaneously collide with 10 other balls. However, this could be adjusted depending on the needs.
 
 Here is a stable solution to these bugs.
 
@@ -1515,4 +1515,4 @@ collidingBalls({
 });
 ```
 
-This was a lot of fun. But it's not perfect. There are still issues with imperfect collisions (because the balls do not touch), wall squeezes, and balls that are spawned on top of eachother. If you come with a solution for any of these things, please let me know!
+This was a lot of fun. But it's not perfect. There are still issues with imperfect collisions (because the balls do not touch), wall squeezes, and balls that are spawned on top of each other. If you come with a solution for any of these things, please let me know!
