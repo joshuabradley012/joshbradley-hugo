@@ -1,0 +1,138 @@
+:root {
+  --board-size: 3;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+html, body {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  color: #000;
+  font-family: Helvetica, sans-serif;
+  /* Reset rem units to 10px, without overriding user settings */
+  font-size: 62.5%;
+  line-height: 1.375;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+.btn {
+  cursor: pointer;
+  appearance: none;
+  display: block;
+  border: 3px solid #000;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  background: transparent;
+  color: #000;
+  font-weight: 700;
+}
+
+.btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+.app-shell {
+  max-width: 600px;
+  margin: auto;
+  padding: 0 1rem;
+}
+
+.title {
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.slider {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.slider-label {
+  display: block;
+}
+
+.tally {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.tally .score {
+  min-width: 8rem;
+  border-radius: 1rem;
+  background: #f3f4f6;
+  padding: .5rem 1rem;
+  text-align: center;
+}
+
+.tally .player-name {
+  display: block;
+  font-weight: 700;
+}
+
+.tally .player-score {
+  font-family: SF mono, monospace;
+  font-size: 3rem;
+}
+
+.board {
+  position: relative;
+  width: 100%;
+  background: #000;
+  margin: auto;
+}
+
+.board::before {
+  content: '';
+  display: block;
+  padding-top: 100%;
+}
+
+.board-inner {
+  display: grid;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  grid-template-columns: repeat(var(--board-size), 1fr);
+  grid-gap: .8rem;
+}
+
+.square {
+  background-color: #fff;
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.square.x {
+  background-image: url(images/x.svg);
+}
+
+.square.o {
+  background-image: url(images/o.svg);
+}
+
+.bottom-bar {
+  text-align: center;
+}
+
+.bottom-bar > * {
+  margin-right: auto;
+  margin-left: auto;
+}

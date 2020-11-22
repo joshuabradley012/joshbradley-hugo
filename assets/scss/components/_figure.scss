@@ -1,0 +1,63 @@
+.lazyload {
+  animation: gradient 1.25s linear infinite normal forwards;
+  background: linear-gradient(270deg,#f3f4f6 8%,#e3e4e6 18%,#f3f4f6 36%);
+  background-size: 200% 100%;
+
+  &.loaded {
+    animation: none;
+  }
+}
+
+.ratio {
+  a {
+    display: block;
+    overflow: hidden;
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+    }
+  }
+
+  img {
+    height: 100%;
+    margin: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+  }
+
+  &.shadow {
+    a {
+      box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+    }
+  }
+
+  &-16by9 {
+    @extend .ratio;
+    a {
+      &::before {
+        padding-top: 56.25%;
+      }
+    }
+  }
+}
+
+.shadow {
+  img {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: -100% 50%
+  }
+}
