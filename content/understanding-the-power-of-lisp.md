@@ -28,7 +28,7 @@ Originally, John McCarthy had defined symbolic expressions (S-expressions) and m
 
 ```
 ; S-expression
-((ab . c) . d . nil)
+((ab . c) d . nil)
 
 ; M-expression
 eq[x; x]
@@ -106,13 +106,13 @@ Stands for contents of the decrement register. It returns everything after the f
 
 ```
 (cdr '(x a))
-; returns a
+; returns (a)
 
 (cdr '((x a) y))
-; returns y
+; returns (y)
 
 (cdr '((x a) (y b)))
-; returns (y b)
+; returns ((y b))
 ```
 
 ### `cons`
