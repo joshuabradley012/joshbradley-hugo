@@ -507,34 +507,34 @@ h6, .h6,
 }
 
 h1, .h1 {
-  font-size: 4em;
+  font-size: 7.2rem;
 }
 @media (max-width: 767.98px) {
   h1, .h1 {
-    font-size: 3em;
+    font-size: 5.4rem;
   }
 }
 
 h2, .h2 {
-  font-size: 3em;
+  font-size: 5.4rem;
 }
 @media (max-width: 767.98px) {
   h2, .h2 {
-    font-size: 2em;
+    font-size: 3.6rem;
   }
 }
 
 h3, .h3 {
-  font-size: 2em;
+  font-size: 3.6rem;
 }
 @media (max-width: 767.98px) {
   h3, .h3 {
-    font-size: 1.375em;
+    font-size: 2.4rem;
   }
 }
 
 h4, .h4 {
-  font-size: 1.375em;
+  font-size: 2.4rem;
   letter-spacing: 0.025em;
   text-transform: uppercase;
 }
@@ -545,7 +545,7 @@ h4, .h4 {
 }
 
 h5, .h5 {
-  font-size: 1em;
+  font-size: 1.6rem;
   letter-spacing: 0.025em;
   text-transform: uppercase;
 }
