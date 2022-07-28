@@ -615,6 +615,9 @@ blockquote {
   line-height: 1.1;
   margin: 4.8rem 0;
 }
+blockquote cite::before {
+  content: "— ";
+}
 
 .quotes::before {
   content: "“";
@@ -629,9 +632,6 @@ cite {
   font-style: normal;
   font-weight: 400;
   margin: 2.4rem 0 0;
-}
-cite::before {
-  content: "— ";
 }
 
 code {
@@ -700,7 +700,7 @@ pre code {
 }
 
 small {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 
 var {
