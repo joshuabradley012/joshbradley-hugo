@@ -498,7 +498,8 @@ h2, .h2,
 h3, .h3,
 h4, .h4,
 h5, .h5,
-h6, .h6 {
+h6, .h6,
+.brow {
   font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   font-weight: 700;
   line-height: 1.1;
@@ -508,19 +509,39 @@ h6, .h6 {
 h1, .h1 {
   font-size: 4em;
 }
+@media (max-width: 767.98px) {
+  h1, .h1 {
+    font-size: 3em;
+  }
+}
 
 h2, .h2 {
   font-size: 3em;
 }
+@media (max-width: 767.98px) {
+  h2, .h2 {
+    font-size: 2em;
+  }
+}
 
 h3, .h3 {
   font-size: 2em;
+}
+@media (max-width: 767.98px) {
+  h3, .h3 {
+    font-size: 1.375em;
+  }
 }
 
 h4, .h4 {
   font-size: 1.375em;
   letter-spacing: 0.025em;
   text-transform: uppercase;
+}
+@media (max-width: 767.98px) {
+  h4, .h4 {
+    font-size: 1.125em;
+  }
 }
 
 h5, .h5 {
@@ -536,12 +557,32 @@ h6, .h6 {
   text-transform: uppercase;
 }
 
+.brow {
+  font-family: "Playfair Display", "Apple Garamond", "Baskerville", "Times New Roman", "Droid Serif", "Times", "Source Serif Pro", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.brow::before {
+  content: "— ";
+}
+.brow::after {
+  content: " —";
+}
+
 h6 + h1,
+.brow + h1,
 .h6 + .h1,
+.brow + .h1,
 h6 + h2,
+.brow + h2,
 .h6 + .h2,
+.brow + .h2,
 h6 + h3,
-.h6 + .h3 {
+.brow + h3,
+.h6 + .h3,
+.brow + .h3 {
   margin-top: 0;
 }
 
@@ -589,10 +630,17 @@ cite {
   font-weight: 400;
   margin: 2.4rem 0 0;
 }
+cite::before {
+  content: "— ";
+}
 
 code {
   color: #000;
   font-family: "Menlo", "Consolas", "Monaco", "Liberation Mono", "Lucida Console", monospace;
+}
+
+label code {
+  font-size: 1.2rem;
 }
 
 data::after {
@@ -626,6 +674,11 @@ hr {
   border-top: 1px solid #000;
   margin: 9.6rem 0;
 }
+@media (max-width: 767.98px) {
+  hr {
+    margin: 4.8rem 0;
+  }
+}
 
 ul,
 ol {
@@ -653,6 +706,10 @@ small {
 var {
   font-family: "Playfair Display", "Apple Garamond", "Baskerville", "Times New Roman", "Droid Serif", "Times", "Source Serif Pro", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-weight: 600;
+}
+
+.text-center {
+  text-align: center;
 }
 
 form {
@@ -788,6 +845,16 @@ button:focus,
   color: #fff;
   text-decoration: none;
 }
+@media (max-width: 575.98px) {
+  .btn,
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+    display: block;
+    width: 100%;
+  }
+}
 
 [type=file]::file-selector-button {
   background-color: #fff;
@@ -863,7 +930,60 @@ button + [type=submit],
 [type=submit] + [type=radio],
 [type=submit] + [type=reset],
 [type=submit] + [type=submit] {
-  margin-left: 1.2rem;
+  margin: 0 0 0 1.2rem;
+}
+@media (max-width: 575.98px) {
+  .btn + .btn,
+.btn + button,
+.btn + [type=checkbox],
+.btn + [type=button],
+.btn + [type=radio],
+.btn + [type=reset],
+.btn + [type=submit],
+button + .btn,
+button + button,
+button + [type=checkbox],
+button + [type=button],
+button + [type=radio],
+button + [type=reset],
+button + [type=submit],
+[type=checkbox] + .btn,
+[type=checkbox] + button,
+[type=checkbox] + [type=checkbox],
+[type=checkbox] + [type=button],
+[type=checkbox] + [type=radio],
+[type=checkbox] + [type=reset],
+[type=checkbox] + [type=submit],
+[type=button] + .btn,
+[type=button] + button,
+[type=button] + [type=checkbox],
+[type=button] + [type=button],
+[type=button] + [type=radio],
+[type=button] + [type=reset],
+[type=button] + [type=submit],
+[type=radio] + .btn,
+[type=radio] + button,
+[type=radio] + [type=checkbox],
+[type=radio] + [type=button],
+[type=radio] + [type=radio],
+[type=radio] + [type=reset],
+[type=radio] + [type=submit],
+[type=reset] + .btn,
+[type=reset] + button,
+[type=reset] + [type=checkbox],
+[type=reset] + [type=button],
+[type=reset] + [type=radio],
+[type=reset] + [type=reset],
+[type=reset] + [type=submit],
+[type=submit] + .btn,
+[type=submit] + button,
+[type=submit] + [type=checkbox],
+[type=submit] + [type=button],
+[type=submit] + [type=radio],
+[type=submit] + [type=reset],
+[type=submit] + [type=submit] {
+    margin: 1.2rem 0 0 0;
+  }
 }
 
 [type=file] {
@@ -887,6 +1007,11 @@ button + [type=submit],
   max-width: 800px;
   padding: 9.6rem 2.4rem;
 }
+@media (max-width: 767.98px) {
+  .container {
+    padding: 4.8rem 2.4rem;
+  }
+}
 
 .copy > :first-child {
   margin-top: 0;
@@ -896,12 +1021,15 @@ button + [type=submit],
 }
 
 .colors {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 9.6rem 9.6rem 9.6rem 9.6rem;
+  grid-gap: 2.4rem;
+  justify-content: center;
 }
-.colors .color {
-  flex: 0 0 100px;
-  margin: 0 2.4rem 2.4rem 0;
+@media (max-width: 767.98px) {
+  .colors {
+    grid-template-columns: 9.6rem 9.6rem;
+  }
 }
 .colors .color .swatch {
   padding-top: 100%;
@@ -909,13 +1037,13 @@ button + [type=submit],
   border-color: transparent;
   border-radius: 50%;
 }
-.colors .color .name {
+.colors .color label {
   margin: 1.2rem 0 0;
   text-align: center;
 }
 .colors .color.white .swatch {
   background: #fff;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  border: 0.1rem solid #000;
 }
 .colors .color.gray-light .swatch {
   background: #f3f3f3;
@@ -939,12 +1067,18 @@ button + [type=submit],
   padding: 4.8rem;
   margin: 4.8rem 0;
 }
+@media (max-width: 767.98px) {
+  .palettes .palette {
+    padding: 2.4rem;
+    margin: 2.4rem 0;
+  }
+}
 .palettes .palette:last-child {
   margin-bottom: 0;
 }
 .palettes .palette.white {
   background-color: #fff;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  border: 0.1rem solid #000;
 }
 .palettes .palette.gray-light {
   background-color: #f3f3f3;
@@ -957,20 +1091,18 @@ button + [type=submit],
   background-color: #000;
   color: #fff;
 }
-.palettes .palette.gray {
-  background-color: #bbbbbb;
-}
-.palettes .palette.gray .btn {
-  background-color: #bbbbbb;
-  color: #000;
-}
-.palettes .palette.gray .btn:hover, .palettes .palette.gray .btn:active, .palettes .palette.gray .btn:focus {
-  background-color: #000;
-  color: #fff;
-}
 .palettes .palette.black {
   background-color: #000;
   color: #fff;
+}
+.palettes .palette.black a {
+  color: #fff;
+}
+.palettes .palette.black p a:not(.btn) {
+  border-bottom-color: #fff;
+}
+.palettes .palette.black p a:not(.btn):hover, .palettes .palette.black p a:not(.btn):active, .palettes .palette.black p a:not(.btn):focus {
+  border-color: transparent;
 }
 .palettes .palette.black .btn {
   background-color: #000;
@@ -981,22 +1113,18 @@ button + [type=submit],
   background-color: #fff;
   color: #000;
 }
-.palettes .palette.blue-light {
-  background-color: #3373b2;
-  color: #fff;
-}
-.palettes .palette.blue-light .btn {
-  background-color: #3373b2;
-  border-color: #fff;
-  color: #fff;
-}
-.palettes .palette.blue-light .btn:hover, .palettes .palette.blue-light .btn:active, .palettes .palette.blue-light .btn:focus {
-  background-color: #fff;
-  color: #000;
-}
 .palettes .palette.blue {
   background-color: #00509f;
   color: #fff;
+}
+.palettes .palette.blue a {
+  color: #fff;
+}
+.palettes .palette.blue p a:not(.btn) {
+  border-bottom-color: #fff;
+}
+.palettes .palette.blue p a:not(.btn):hover, .palettes .palette.blue p a:not(.btn):active, .palettes .palette.blue p a:not(.btn):focus {
+  border-color: transparent;
 }
 .palettes .palette.blue .btn {
   background-color: #00509f;
