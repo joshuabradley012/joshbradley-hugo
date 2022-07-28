@@ -4,144 +4,144 @@
   font-style: normal;
   font-weight: 200;
   font-display: swap;
-  src: url(/fonts/Oswald-ExtraLight.ttf);
-  src: local("Oswald"), url(/fonts/Oswald-ExtraLight.ttf) format("truetype");
+  src: url(fonts/Oswald-ExtraLight.ttf);
+  src: local("Oswald"), url(fonts/Oswald-ExtraLight.ttf) format("truetype");
 }
 @font-face {
   font-family: Oswald;
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: url(/fonts/Oswald-Light.ttf);
-  src: local("Oswald"), url(/fonts/Oswald-Light.ttf) format("truetype");
+  src: url(fonts/Oswald-Light.ttf);
+  src: local("Oswald"), url(fonts/Oswald-Light.ttf) format("truetype");
 }
 @font-face {
   font-family: Oswald;
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(/fonts/Oswald-Regular.ttf);
-  src: local("Oswald"), url(/fonts/Oswald-Regular.ttf) format("truetype");
+  src: url(fonts/Oswald-Regular.ttf);
+  src: local("Oswald"), url(fonts/Oswald-Regular.ttf) format("truetype");
 }
 @font-face {
   font-family: Oswald;
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(/fonts/Oswald-Medium.ttf);
-  src: local("Oswald"), url(/fonts/Oswald-Medium.ttf) format("truetype");
+  src: url(fonts/Oswald-Medium.ttf);
+  src: local("Oswald"), url(fonts/Oswald-Medium.ttf) format("truetype");
 }
 @font-face {
   font-family: Oswald;
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(/fonts/Oswald-SemiBold.ttf);
-  src: local("Oswald"), url(/fonts/Oswald-SemiBold.ttf) format("truetype");
+  src: url(fonts/Oswald-SemiBold.ttf);
+  src: local("Oswald"), url(fonts/Oswald-SemiBold.ttf) format("truetype");
 }
 @font-face {
   font-family: Oswald;
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(/fonts/Oswald-Bold.ttf);
-  src: local("Oswald"), url(/fonts/Oswald-Bold.ttf) format("truetype");
+  src: url(fonts/Oswald-Bold.ttf);
+  src: local("Oswald"), url(fonts/Oswald-Bold.ttf) format("truetype");
 }
 @font-face {
   font-family: Playfair Display;
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(/fonts/PlayfairDisplay-Regular.ttf);
-  src: local("Oswald"), url(/fonts/PlayfairDisplay-Regular.ttf) format("truetype");
+  src: url(fonts/PlayfairDisplay-Regular.ttf);
+  src: local("Oswald"), url(fonts/PlayfairDisplay-Regular.ttf) format("truetype");
 }
 @font-face {
   font-family: Playfair Display;
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url(/fonts/PlayfairDisplay-Italic.ttf);
-  src: local("Oswald"), url(/fonts/PlayfairDisplay-Italic.ttf) format("truetype");
+  src: url(fonts/PlayfairDisplay-Italic.ttf);
+  src: local("Oswald"), url(fonts/PlayfairDisplay-Italic.ttf) format("truetype");
 }
 @font-face {
   font-family: Playfair Display;
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(/fonts/PlayfairDisplay-Medium.ttf);
-  src: local("Oswald"), url(/fonts/PlayfairDisplay-Medium.ttf) format("truetype");
+  src: url(fonts/PlayfairDisplay-Medium.ttf);
+  src: local("Oswald"), url(fonts/PlayfairDisplay-Medium.ttf) format("truetype");
 }
 @font-face {
   font-family: Playfair Display;
   font-style: italic;
   font-weight: 500;
   font-display: swap;
-  src: url(/fonts/PlayfairDisplay-MediumItalic.ttf);
-  src: local("Oswald"), url(/fonts/PlayfairDisplay-MediumItalic.ttf) format("truetype");
+  src: url(fonts/PlayfairDisplay-MediumItalic.ttf);
+  src: local("Oswald"), url(fonts/PlayfairDisplay-MediumItalic.ttf) format("truetype");
 }
 @font-face {
   font-family: Playfair Display;
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(/fonts/PlayfairDisplay-SemiBold.ttf);
-  src: local("Oswald"), url(/fonts/PlayfairDisplay-SemiBold.ttf) format("truetype");
+  src: url(fonts/PlayfairDisplay-SemiBold.ttf);
+  src: local("Oswald"), url(fonts/PlayfairDisplay-SemiBold.ttf) format("truetype");
 }
 @font-face {
   font-family: Playfair Display;
   font-style: italic;
   font-weight: 600;
   font-display: swap;
-  src: url(/fonts/PlayfairDisplay-SemiBoldItalic.ttf);
-  src: local("Oswald"), url(/fonts/PlayfairDisplay-SemiBoldItalic.ttf) format("truetype");
+  src: url(fonts/PlayfairDisplay-SemiBoldItalic.ttf);
+  src: local("Oswald"), url(fonts/PlayfairDisplay-SemiBoldItalic.ttf) format("truetype");
 }
 @font-face {
   font-family: Playfair Display;
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(/fonts/PlayfairDisplay-Bold.ttf);
-  src: local("Oswald"), url(/fonts/PlayfairDisplay-Bold.ttf) format("truetype");
+  src: url(fonts/PlayfairDisplay-Bold.ttf);
+  src: local("Oswald"), url(fonts/PlayfairDisplay-Bold.ttf) format("truetype");
 }
 @font-face {
   font-family: Playfair Display;
   font-style: italic;
   font-weight: 700;
   font-display: swap;
-  src: url(/fonts/PlayfairDisplay-BoldItalic.ttf);
-  src: local("Oswald"), url(/fonts/PlayfairDisplay-BoldItalic.ttf) format("truetype");
+  src: url(fonts/PlayfairDisplay-BoldItalic.ttf);
+  src: local("Oswald"), url(fonts/PlayfairDisplay-BoldItalic.ttf) format("truetype");
 }
 @font-face {
   font-family: Playfair Display;
   font-style: normal;
   font-weight: 800;
   font-display: swap;
-  src: url(/fonts/PlayfairDisplay-ExtraBold.ttf);
-  src: local("Oswald"), url(/fonts/PlayfairDisplay-ExtraBold.ttf) format("truetype");
+  src: url(fonts/PlayfairDisplay-ExtraBold.ttf);
+  src: local("Oswald"), url(fonts/PlayfairDisplay-ExtraBold.ttf) format("truetype");
 }
 @font-face {
   font-family: Playfair Display;
   font-style: italic;
   font-weight: 800;
   font-display: swap;
-  src: url(/fonts/PlayfairDisplay-ExtraBoldItalic.ttf);
-  src: local("Oswald"), url(/fonts/PlayfairDisplay-ExtraBoldItalic.ttf) format("truetype");
+  src: url(fonts/PlayfairDisplay-ExtraBoldItalic.ttf);
+  src: local("Oswald"), url(fonts/PlayfairDisplay-ExtraBoldItalic.ttf) format("truetype");
 }
 @font-face {
   font-family: Playfair Display;
   font-style: normal;
   font-weight: 900;
   font-display: swap;
-  src: url(/fonts/PlayfairDisplay-Black.ttf);
-  src: local("Oswald"), url(/fonts/PlayfairDisplay-Black.ttf) format("truetype");
+  src: url(fonts/PlayfairDisplay-Black.ttf);
+  src: local("Oswald"), url(fonts/PlayfairDisplay-Black.ttf) format("truetype");
 }
 @font-face {
   font-family: Playfair Display;
   font-style: italic;
   font-weight: 900;
   font-display: swap;
-  src: url(/fonts/PlayfairDisplay-BlackItalic.ttf);
-  src: local("Oswald"), url(/fonts/PlayfairDisplay-BlackItalic.ttf) format("truetype");
+  src: url(fonts/PlayfairDisplay-BlackItalic.ttf);
+  src: local("Oswald"), url(fonts/PlayfairDisplay-BlackItalic.ttf) format("truetype");
 }
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
