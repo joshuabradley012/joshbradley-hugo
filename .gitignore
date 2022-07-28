@@ -49,6 +49,7 @@ sftp-config.json
 # ignore Hugo build folders
 /resources
 /public
+/node_modules
 
 # -------------------------
 # BEGIN Whitelisted Files

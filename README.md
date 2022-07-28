@@ -7,3 +7,9 @@ Features:
 * Minimal styling and javascript
 * OG Data and other SEO friendly data
 * Schema markup
+
+Deployment
+```
+hugo --minify
+hugo deploy --maxDeletes -1
+```

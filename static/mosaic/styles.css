@@ -1,0 +1,1011 @@
+@charset "UTF-8";
+@font-face {
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url(/fonts/Oswald-ExtraLight.ttf);
+  src: local("Oswald"), url(/fonts/Oswald-ExtraLight.ttf) format("truetype");
+}
+@font-face {
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(/fonts/Oswald-Light.ttf);
+  src: local("Oswald"), url(/fonts/Oswald-Light.ttf) format("truetype");
+}
+@font-face {
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/Oswald-Regular.ttf);
+  src: local("Oswald"), url(/fonts/Oswald-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/Oswald-Medium.ttf);
+  src: local("Oswald"), url(/fonts/Oswald-Medium.ttf) format("truetype");
+}
+@font-face {
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/Oswald-SemiBold.ttf);
+  src: local("Oswald"), url(/fonts/Oswald-SemiBold.ttf) format("truetype");
+}
+@font-face {
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/Oswald-Bold.ttf);
+  src: local("Oswald"), url(/fonts/Oswald-Bold.ttf) format("truetype");
+}
+@font-face {
+  font-family: Playfair Display;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/PlayfairDisplay-Regular.ttf);
+  src: local("Oswald"), url(/fonts/PlayfairDisplay-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: Playfair Display;
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/PlayfairDisplay-Italic.ttf);
+  src: local("Oswald"), url(/fonts/PlayfairDisplay-Italic.ttf) format("truetype");
+}
+@font-face {
+  font-family: Playfair Display;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/PlayfairDisplay-Medium.ttf);
+  src: local("Oswald"), url(/fonts/PlayfairDisplay-Medium.ttf) format("truetype");
+}
+@font-face {
+  font-family: Playfair Display;
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/PlayfairDisplay-MediumItalic.ttf);
+  src: local("Oswald"), url(/fonts/PlayfairDisplay-MediumItalic.ttf) format("truetype");
+}
+@font-face {
+  font-family: Playfair Display;
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/PlayfairDisplay-SemiBold.ttf);
+  src: local("Oswald"), url(/fonts/PlayfairDisplay-SemiBold.ttf) format("truetype");
+}
+@font-face {
+  font-family: Playfair Display;
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/PlayfairDisplay-SemiBoldItalic.ttf);
+  src: local("Oswald"), url(/fonts/PlayfairDisplay-SemiBoldItalic.ttf) format("truetype");
+}
+@font-face {
+  font-family: Playfair Display;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/PlayfairDisplay-Bold.ttf);
+  src: local("Oswald"), url(/fonts/PlayfairDisplay-Bold.ttf) format("truetype");
+}
+@font-face {
+  font-family: Playfair Display;
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/PlayfairDisplay-BoldItalic.ttf);
+  src: local("Oswald"), url(/fonts/PlayfairDisplay-BoldItalic.ttf) format("truetype");
+}
+@font-face {
+  font-family: Playfair Display;
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(/fonts/PlayfairDisplay-ExtraBold.ttf);
+  src: local("Oswald"), url(/fonts/PlayfairDisplay-ExtraBold.ttf) format("truetype");
+}
+@font-face {
+  font-family: Playfair Display;
+  font-style: italic;
+  font-weight: 800;
+  font-display: swap;
+  src: url(/fonts/PlayfairDisplay-ExtraBoldItalic.ttf);
+  src: local("Oswald"), url(/fonts/PlayfairDisplay-ExtraBoldItalic.ttf) format("truetype");
+}
+@font-face {
+  font-family: Playfair Display;
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(/fonts/PlayfairDisplay-Black.ttf);
+  src: local("Oswald"), url(/fonts/PlayfairDisplay-Black.ttf) format("truetype");
+}
+@font-face {
+  font-family: Playfair Display;
+  font-style: italic;
+  font-weight: 900;
+  font-display: swap;
+  src: url(/fonts/PlayfairDisplay-BlackItalic.ttf);
+  src: local("Oswald"), url(/fonts/PlayfairDisplay-BlackItalic.ttf) format("truetype");
+}
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/* Document
+   ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+html {
+  line-height: 1.375; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/* Sections
+   ========================================================================== */
+/**
+ * Remove the margin in all browsers.
+ */
+body {
+  margin: 0;
+}
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+main {
+  display: block;
+}
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+a {
+  background-color: transparent;
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+img {
+  border-style: none;
+}
+
+/* Forms
+   ========================================================================== */
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.375; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+button,
+input { /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+button,
+select { /* 1 */
+  text-transform: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+  -webkit-appearance: button;
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+button::-moz-focus-inner,
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+button:-moz-focusring,
+[type=button]:-moz-focusring,
+[type=reset]:-moz-focusring,
+[type=submit]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+[type=checkbox],
+[type=radio] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type=search] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+details {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+  display: list-item;
+}
+
+/* Misc
+   ========================================================================== */
+/**
+ * Add the correct display in IE 10+.
+ */
+template {
+  display: none;
+}
+
+/**
+ * Add the correct display in IE 10.
+ */
+[hidden] {
+  display: none;
+}
+
+html {
+  box-sizing: border-box;
+  color: #000;
+  font-family: "Playfair Display", "Apple Garamond", "Baskerville", "Times New Roman", "Droid Serif", "Times", "Source Serif Pro", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 62.5%;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+*:focus {
+  border-color: #fff;
+  box-shadow: 0 0 0 0.4rem rgba(255, 255, 255, 0.25);
+  outline: 0;
+}
+
+body {
+  background: #fff;
+  font-size: 1.8rem;
+}
+
+img,
+[type=image] {
+  height: auto;
+  max-width: 100%;
+  width: 100%;
+}
+
+label[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+}
+
+svg {
+  fill: currentColor;
+  height: 100%;
+  width: 100%;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 4.8rem 0 2.4rem;
+}
+
+h1, .h1 {
+  font-size: 4em;
+}
+
+h2, .h2 {
+  font-size: 3em;
+}
+
+h3, .h3 {
+  font-size: 2em;
+}
+
+h4, .h4 {
+  font-size: 1.375em;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+h5, .h5 {
+  font-size: 1em;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+h6, .h6 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+h6 + h1,
+.h6 + .h1,
+h6 + h2,
+.h6 + .h2,
+h6 + h3,
+.h6 + .h3 {
+  margin-top: 0;
+}
+
+a {
+  color: #00509f;
+  pointer-events: all;
+  text-decoration: none;
+}
+a:hover, a:active, a:focus {
+  color: #00509f;
+  text-decoration: none;
+}
+
+p {
+  margin: 2.4rem 0;
+}
+p a:not(.btn) {
+  border-bottom: 0.2rem solid #00509f;
+  position: relative;
+  transition: all 0.35s linear;
+}
+p a:not(.btn):hover, p a:not(.btn):active, p a:not(.btn):focus {
+  border-color: transparent;
+}
+
+blockquote {
+  font-size: 3rem;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.1;
+  margin: 4.8rem 0;
+}
+
+.quotes::before {
+  content: "“";
+}
+.quotes::after {
+  content: "”";
+}
+
+cite {
+  font-size: 1.4rem;
+  display: block;
+  font-style: normal;
+  font-weight: 400;
+  margin: 2.4rem 0 0;
+}
+
+code {
+  color: #000;
+  font-family: "Menlo", "Consolas", "Monaco", "Liberation Mono", "Lucida Console", monospace;
+}
+
+data::after {
+  content: " (ID " attr(value) ")";
+  display: none;
+  font-size: 1.4rem;
+}
+data::after:hover {
+  display: inline;
+}
+
+figure {
+  margin: 2.4rem 0;
+  text-align: center;
+}
+
+figcaption > * {
+  color: #6c757d;
+  font-size: 1.4rem;
+  font-weight: 400;
+  text-transform: none;
+  margin: 1.2rem 0 2.4rem;
+}
+
+del {
+  color: #6c757d;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #000;
+  margin: 9.6rem 0;
+}
+
+ul,
+ol {
+  padding: 0 0 0 2.4rem;
+}
+ul li,
+ol li {
+  margin: 0.6rem 0;
+}
+
+pre {
+  background: #fff !important;
+  overflow: scroll;
+  padding: 0;
+}
+pre code {
+  background: transparent;
+  padding: 0;
+}
+
+small {
+  font-size: 1.4rem;
+}
+
+var {
+  font-family: "Playfair Display", "Apple Garamond", "Baskerville", "Times New Roman", "Droid Serif", "Times", "Source Serif Pro", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-weight: 600;
+}
+
+form {
+  background: #f3f3f3;
+  border: 0;
+  border-radius: 0;
+  margin: 4.8rem 0;
+  padding: 4.8rem;
+}
+@media (max-width: 575.98px) {
+  form {
+    border-radius: 0;
+    padding: 2.4rem;
+  }
+}
+form > :first-child {
+  margin-top: 0;
+}
+form > :last-child {
+  margin-bottom: 0;
+}
+form a:not(.btn) {
+  color: #fff;
+  font-size: 1.6rem;
+  position: relative;
+  text-decoration: none;
+}
+
+label {
+  display: block;
+  font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-size: 1.4rem;
+  line-height: 1;
+  margin: 0 0 0.6rem;
+}
+
+select,
+textarea,
+input {
+  margin: 0 0 2.4rem;
+}
+
+select,
+textarea,
+[type=color],
+[type=date],
+[type=datetime-local],
+[type=email],
+[type=month],
+[type=number],
+[type=password],
+[type=range],
+[type=search],
+[type=tel],
+[type=text],
+[type=time],
+[type=url],
+[type=week] {
+  background: #fff;
+  border: 0.2rem solid #000;
+  border-radius: 0;
+  box-sizing: border-box;
+  color: #000;
+  display: block;
+  font-family: "Playfair Display", "Apple Garamond", "Baskerville", "Times New Roman", "Droid Serif", "Times", "Source Serif Pro", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1;
+  padding: 0.8rem;
+  width: 100%;
+}
+select:focus,
+textarea:focus,
+[type=color]:focus,
+[type=date]:focus,
+[type=datetime-local]:focus,
+[type=email]:focus,
+[type=month]:focus,
+[type=number]:focus,
+[type=password]:focus,
+[type=range]:focus,
+[type=search]:focus,
+[type=tel]:focus,
+[type=text]:focus,
+[type=time]:focus,
+[type=url]:focus,
+[type=week]:focus {
+  border-color: #00509f;
+  box-shadow: unset;
+}
+
+textarea {
+  line-height: 1.375;
+  height: auto;
+}
+
+[type=color] {
+  padding: 0 0.6rem;
+}
+
+.btn,
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+  background-color: #fff;
+  border: 0.2rem solid #000;
+  border-radius: 0;
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1;
+  padding: 1.2rem 2.4rem;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.35s linear;
+}
+.btn:hover, .btn:active, .btn:focus,
+button:hover,
+button:active,
+button:focus,
+[type=button]:hover,
+[type=button]:active,
+[type=button]:focus,
+[type=reset]:hover,
+[type=reset]:active,
+[type=reset]:focus,
+[type=submit]:hover,
+[type=submit]:active,
+[type=submit]:focus {
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+}
+
+[type=file]::file-selector-button {
+  background-color: #fff;
+  border: 0.2rem solid #000;
+  border-radius: 0;
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.6rem;
+  line-height: 1;
+  padding: 1.2rem 2.4rem;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.35s linear;
+}
+[type=file]::file-selector-button:hover, [type=file]::file-selector-button:active, [type=file]::file-selector-button:focus {
+  background-color: #000;
+  color: #fff;
+}
+
+[type=file]:active::file-selector-button, [type=file]:focus::file-selector-button {
+  background-color: #000;
+  color: #fff;
+}
+
+.btn + .btn,
+.btn + button,
+.btn + [type=checkbox],
+.btn + [type=button],
+.btn + [type=radio],
+.btn + [type=reset],
+.btn + [type=submit],
+button + .btn,
+button + button,
+button + [type=checkbox],
+button + [type=button],
+button + [type=radio],
+button + [type=reset],
+button + [type=submit],
+[type=checkbox] + .btn,
+[type=checkbox] + button,
+[type=checkbox] + [type=checkbox],
+[type=checkbox] + [type=button],
+[type=checkbox] + [type=radio],
+[type=checkbox] + [type=reset],
+[type=checkbox] + [type=submit],
+[type=button] + .btn,
+[type=button] + button,
+[type=button] + [type=checkbox],
+[type=button] + [type=button],
+[type=button] + [type=radio],
+[type=button] + [type=reset],
+[type=button] + [type=submit],
+[type=radio] + .btn,
+[type=radio] + button,
+[type=radio] + [type=checkbox],
+[type=radio] + [type=button],
+[type=radio] + [type=radio],
+[type=radio] + [type=reset],
+[type=radio] + [type=submit],
+[type=reset] + .btn,
+[type=reset] + button,
+[type=reset] + [type=checkbox],
+[type=reset] + [type=button],
+[type=reset] + [type=radio],
+[type=reset] + [type=reset],
+[type=reset] + [type=submit],
+[type=submit] + .btn,
+[type=submit] + button,
+[type=submit] + [type=checkbox],
+[type=submit] + [type=button],
+[type=submit] + [type=radio],
+[type=submit] + [type=reset],
+[type=submit] + [type=submit] {
+  margin-left: 1.2rem;
+}
+
+[type=file] {
+  width: 100%;
+}
+[type=file]::file-selector-button {
+  margin: 0 1.2rem 0 0;
+}
+
+.form-group .btn,
+.form-group button,
+.form-group [type=button],
+.form-group [type=file]::file-selector-button,
+.form-group [type=reset],
+.form-group [type=submit] {
+  margin-bottom: 0;
+}
+
+.container {
+  margin: auto;
+  max-width: 800px;
+  padding: 9.6rem 2.4rem;
+}
+
+.copy > :first-child {
+  margin-top: 0;
+}
+.copy > :last-child {
+  margin-bottom: 0;
+}
+
+.colors {
+  display: flex;
+  flex-wrap: wrap;
+}
+.colors .color {
+  flex: 0 0 100px;
+  margin: 0 2.4rem 2.4rem 0;
+}
+.colors .color .swatch {
+  padding-top: 100%;
+  border: 0.2rem solid #000;
+  border-color: transparent;
+  border-radius: 50%;
+}
+.colors .color .name {
+  margin: 1.2rem 0 0;
+  text-align: center;
+}
+.colors .color.white .swatch {
+  background: #fff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+.colors .color.gray-light .swatch {
+  background: #f3f3f3;
+}
+.colors .color.gray .swatch {
+  background: #bbbbbb;
+}
+.colors .color.black .swatch {
+  background: #000;
+}
+.colors .color.blue-light .swatch {
+  background: #3373b2;
+}
+.colors .color.blue .swatch {
+  background: #00509f;
+}
+
+.palettes .palette {
+  border: 0.2rem solid #000;
+  border-color: transparent;
+  padding: 4.8rem;
+  margin: 4.8rem 0;
+}
+.palettes .palette:last-child {
+  margin-bottom: 0;
+}
+.palettes .palette.white {
+  background-color: #fff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+.palettes .palette.gray-light {
+  background-color: #f3f3f3;
+}
+.palettes .palette.gray-light .btn {
+  background-color: #f3f3f3;
+  color: #000;
+}
+.palettes .palette.gray-light .btn:hover, .palettes .palette.gray-light .btn:active, .palettes .palette.gray-light .btn:focus {
+  background-color: #000;
+  color: #fff;
+}
+.palettes .palette.gray {
+  background-color: #bbbbbb;
+}
+.palettes .palette.gray .btn {
+  background-color: #bbbbbb;
+  color: #000;
+}
+.palettes .palette.gray .btn:hover, .palettes .palette.gray .btn:active, .palettes .palette.gray .btn:focus {
+  background-color: #000;
+  color: #fff;
+}
+.palettes .palette.black {
+  background-color: #000;
+  color: #fff;
+}
+.palettes .palette.black .btn {
+  background-color: #000;
+  border-color: #fff;
+  color: #fff;
+}
+.palettes .palette.black .btn:hover, .palettes .palette.black .btn:active, .palettes .palette.black .btn:focus {
+  background-color: #fff;
+  color: #000;
+}
+.palettes .palette.blue-light {
+  background-color: #3373b2;
+  color: #fff;
+}
+.palettes .palette.blue-light .btn {
+  background-color: #3373b2;
+  border-color: #fff;
+  color: #fff;
+}
+.palettes .palette.blue-light .btn:hover, .palettes .palette.blue-light .btn:active, .palettes .palette.blue-light .btn:focus {
+  background-color: #fff;
+  color: #000;
+}
+.palettes .palette.blue {
+  background-color: #00509f;
+  color: #fff;
+}
+.palettes .palette.blue .btn {
+  background-color: #00509f;
+  border-color: #fff;
+  color: #fff;
+}
+.palettes .palette.blue .btn:hover, .palettes .palette.blue .btn:active, .palettes .palette.blue .btn:focus {
+  background-color: #fff;
+  color: #000;
+}
+
+/*# sourceMappingURL=styles.css.map */
