@@ -1,7 +1,8 @@
 {
   "scripts": {
     "build": "hugo -e production --minify",
-    "deploy": "hugo deploy --maxDeletes -1"
+    "copy:notes": "rm -rf ./static/notes/* && cp -rp ~/notes_html/* ./static/notes",
+    "deploy": "export AWS_PROFILE=personal && hugo deploy --maxDeletes -1"
   },
   "dependencies": {
     "autoprefixer": "^10.4.1"
