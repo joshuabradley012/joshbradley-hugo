@@ -1,0 +1,287 @@
+<html>
+<head>
+<style>
+html {
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+  color: #333;
+  font-family: "Libre Baskerville", "Baskerville", Georgia, serif;
+  font-size: 62.5%;
+  line-height: 1.5
+}
+
+*,*::before,*::after {
+  box-sizing: inherit
+}
+
+body {
+  font-size: 1.8rem;
+  margin: 5rem  auto;
+	max-width: 700px;
+	padding: 0 20px;
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration: underline dotted
+}
+
+small {
+  font-size: 80%
+}
+
+sub,sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline
+}
+
+sub {
+  bottom: -.25em
+}
+
+sup {
+  top: -.5em
+}
+
+img {
+  border-style: none;
+  height: auto;
+  max-width: 100%
+}
+
+input,button {
+  color: #333;
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: .7em;
+  box-sizing: border-box
+}
+
+input {
+  border: 1px solid #d1d1d1
+}
+
+button {
+  background-color: transparent;
+  border: 1px solid #d1d1d1;
+  border-radius: .267857em;
+  border-top-color: #d8d8d8;
+  border-bottom-color: #bababa;
+  color: #666;
+  cursor: pointer;
+  padding: .178571em .535714em
+}
+
+[hidden] {
+  display: none
+}
+
+label[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  line-height: 1.1
+}
+
+
+h1 a,h2 a,h3 a,h4 a,h5 a,h6 a {
+	text-decoration: none;
+}
+
+h1 a,h2 a,h3 a,h4 a {
+	color: #121212;
+}
+
+h5 a, h6 a {
+	color: #666;
+}
+
+h1 {
+  color: #121212;
+  font-size: 2em;
+  margin: .5em 0
+}
+
+h2 {
+  color: #121212;
+  font-size: 1.5em;
+  margin: 1.333333em 0 .666667em
+}
+
+h3 {
+  color: #121212;
+  font-size: 1.2em;
+  margin: 1.666666em 0 .833333em
+}
+
+h4 {
+  color: #121212;
+  font-size: 1em;
+  letter-spacing: .025em;
+  text-transform: uppercase;
+  margin: 2em 0 1em
+}
+
+h5 {
+  color: #666;
+  font-size: 1em;
+  letter-spacing: .025em;
+  text-transform: uppercase;
+  margin: 2em 0 1em
+}
+
+h6 {
+  color: #666;
+  font-size: .8em;
+  text-transform: uppercase;
+  letter-spacing: .025em;
+  margin: 2.5em 0 1.25em
+}
+
+a, a:hover,a:active,a:focus {
+	color: #00e;
+  text-decoration: none
+}
+
+blockquote {
+  font-style: italic;
+  margin: 1em 2em
+}
+
+code {
+  color: #121212;
+  font-family: Courier,monospace;
+  font-size: 1em
+}
+
+data::after {
+  content: " (ID " attr(value) ")";
+  display: none;
+  font-size: .8em
+}
+
+data::after:hover {
+  display: inline
+}
+
+figure {
+  margin: 2em 0
+}
+
+figcaption h4 {
+  color: #666;
+  font-size: .8em;
+  font-weight: 400;
+  text-align: right;
+  text-transform: none;
+  margin: .625em 0 1.25em
+}
+
+del {
+  color: #777
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #ddd
+}
+
+ul,ol {
+  padding: 0 0 0 2em
+}
+
+pre {
+  background: #fff !important;
+  overflow-x: scroll;
+  padding: 0
+}
+
+pre code {
+  background: transparent;
+  padding: 0
+}
+
+var {
+  font-family: Helvetica,Arial,sans-serif;
+  font-weight: 600
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<title>Traversing binary trees</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+    
+<div id="Traversing binary trees"><h1 id="Traversing binary trees" class="header"><a href="#Traversing binary trees">Traversing binary trees</a></h1></div>
+
+<p>
+I am still working to understand all that can be learned about the data while traversing a binary tree, but some that I have learned through study are as follows.
+</p>
+
+<div id="Traversing binary trees-Breadth-first and Depth-first search"><h2 id="Breadth-first and Depth-first search" class="header"><a href="#Traversing binary trees-Breadth-first and Depth-first search">Breadth-first and Depth-first search</a></h2></div>
+
+<p>
+The difference between depth-first and breadth-first search is that depth-first uses a stack (last in first out) while breadth-first uses a queue (first in first out).
+</p>
+
+<p>
+Breadth-first search generally takes more memory than depth-first search, but is guaranteed to find the shortest path to an element.
+</p>
+
+<div id="Traversing binary trees-Breadth-first and Depth-first search-Iterative approach"><h3 id="Iterative approach" class="header"><a href="#Traversing binary trees-Breadth-first and Depth-first search-Iterative approach">Iterative approach</a></h3></div>
+<pre>
+function dfs(rootNode)  {
+  const nodes = [];
+  nodes.push(rootNode);
+
+  while (nodes.length) {
+    const node = nodes.pop();
+    console.log(node.value);
+    if (node.left) nodes.push(node.left);
+    if (node.right) nodes.push(node.right);
+  }
+}
+
+function bfs(rootNode) {
+  const nodes = [];
+  nodes.push(rootNode);
+
+  while (nodes.length) {
+    const node = nodes.shift();
+    console.log(node.value);
+    if (node.left) nodes.push(node.left);
+    if (node.right) nodes.push(node.right);
+  }
+}
+</pre>
+
+<p>
+Keep in mind, <code>shift()</code> is inefficient because it is an O(n) operation compared to O(1) for <code>pop()</code>. Because of this it is better to implement your own queue (which can be done using two arrays/stacks).
+</p>
+
+<div id="Traversing binary trees-Breadth-first and Depth-first search-Recursive approach"><h3 id="Recursive approach" class="header"><a href="#Traversing binary trees-Breadth-first and Depth-first search-Recursive approach">Recursive approach</a></h3></div>
+<pre>
+function dfs(node) {
+  console.log(node.value);
+  if (node.left) dfs(node.left);
+  if (node.right) dfs(node.right);
+}
+
+// Because bfs is a queue, and recursive functions form a call stack
+// it doesn't make much sense to perform bfs recursively
+</pre>
+
+</body>
+</html>

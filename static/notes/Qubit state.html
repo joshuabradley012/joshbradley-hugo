@@ -1,0 +1,280 @@
+<html>
+<head>
+<style>
+html {
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+  color: #333;
+  font-family: "Libre Baskerville", "Baskerville", Georgia, serif;
+  font-size: 62.5%;
+  line-height: 1.5
+}
+
+*,*::before,*::after {
+  box-sizing: inherit
+}
+
+body {
+  font-size: 2rem;
+  margin: 5rem  auto;
+	max-width: 700px;
+	padding: 0 20px;
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration: underline dotted
+}
+
+small {
+  font-size: 80%
+}
+
+sub,sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline
+}
+
+sub {
+  bottom: -.25em
+}
+
+sup {
+  top: -.5em
+}
+
+img {
+  border-style: none;
+  height: auto;
+  max-width: 100%
+}
+
+input,button {
+  color: #333;
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: .7em;
+  box-sizing: border-box
+}
+
+input {
+  border: 1px solid #d1d1d1
+}
+
+button {
+  background-color: transparent;
+  border: 1px solid #d1d1d1;
+  border-radius: .267857em;
+  border-top-color: #d8d8d8;
+  border-bottom-color: #bababa;
+  color: #666;
+  cursor: pointer;
+  padding: .178571em .535714em
+}
+
+[hidden] {
+  display: none
+}
+
+label[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  line-height: 1.1
+}
+
+
+h1 a,h2 a,h3 a,h4 a,h5 a,h6 a {
+	text-decoration: none;
+}
+
+h1 a,h2 a,h3 a,h4 a {
+	color: #121212;
+}
+
+h5 a, h6 a {
+	color: #666;
+}
+
+h1 {
+  color: #121212;
+  font-size: 2em;
+  margin: .5em 0
+}
+
+h2 {
+  color: #121212;
+  font-size: 1.5em;
+  margin: 1.333333em 0 .666667em
+}
+
+h3 {
+  color: #121212;
+  font-size: 1.2em;
+  margin: 1.666666em 0 .833333em
+}
+
+h4 {
+  color: #121212;
+  font-size: 1em;
+  letter-spacing: .025em;
+  text-transform: uppercase;
+  margin: 2em 0 1em
+}
+
+h5 {
+  color: #666;
+  font-size: 1em;
+  letter-spacing: .025em;
+  text-transform: uppercase;
+  margin: 2em 0 1em
+}
+
+h6 {
+  color: #666;
+  font-size: .8em;
+  text-transform: uppercase;
+  letter-spacing: .025em;
+  margin: 2.5em 0 1.25em
+}
+
+a, a:hover,a:active,a:focus {
+	color: #00e;
+  text-decoration: none
+}
+
+blockquote {
+  font-style: italic;
+  margin: 1em 2em
+}
+
+code {
+  color: #121212;
+  font-family: Courier,monospace;
+  font-size: 1em
+}
+
+data::after {
+  content: " (ID " attr(value) ")";
+  display: none;
+  font-size: .8em
+}
+
+data::after:hover {
+  display: inline
+}
+
+figure {
+  margin: 2em 0
+}
+
+figcaption h4 {
+  color: #666;
+  font-size: .8em;
+  font-weight: 400;
+  text-align: right;
+  text-transform: none;
+  margin: .625em 0 1.25em
+}
+
+del {
+  color: #777
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #ddd
+}
+
+ul,ol {
+  padding: 0 0 0 2em
+}
+
+pre {
+  background: #fff !important;
+  overflow-x: scroll;
+  padding: 0
+}
+
+pre code {
+  background: transparent;
+  padding: 0
+}
+
+var {
+  font-family: Helvetica,Arial,sans-serif;
+  font-weight: 600
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<title>Qubit state</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+    
+
+<div id="Qubit state"><h1 id="Qubit state" class="header"><a href="#Qubit state">Qubit state</a></h1></div>
+
+<p>
+Qubit state is a two dimensional vector representing the <em>state space</em> between 0 and 1. This can be denoted as follows:
+</p>
+
+<p>
+\( |0\rangle := \begin{bmatrix}1\\0\end{bmatrix}  \)
+</p>
+
+<p>
+This is a <em>computational basis state</em>.
+</p>
+
+<p>
+The \( |0\rangle \) notation is known as a <em>ket</em> and simply stands for a vector.
+</p>
+
+<p>
+Just how classical bits are represented as 0 and 1, there is a \( |1\rangle \) counterpart to \( |0\rangle \).
+</p>
+
+<p>
+\( |1\rangle := \begin{bmatrix}0\\1\end{bmatrix}  \)
+</p>
+
+<p>
+<em>Superposition</em> is not what I assumed, that is a qubit's ability to be in two states at once. Instead, it is a term that means the state is a <a href="https://en.wikipedia.org/wiki/Linear_combination#:~:text=From%20Wikipedia%2C%20the%20free%20encyclopedia,a%20and%20b%20are%20constants).">linear combination</a> of \( |0\rangle \) and \( |1\rangle \). that is they are the addition of vectors which are multiplied by scalar values.
+</p>
+
+<p>
+So \( 0.6|0\rangle + 0.8|1\rangle \) is a superposition of \( |0\rangle \) and \(|1\rangle \).
+</p>
+
+<p>
+The constraint of qubits is the sum of the squared scalars (or <em>amplitudes</em>) must equal one. As in \( 0.6^2 + 0.8^2 = 1 \). This is called a <em>normalization constraint</em>.
+</p>
+
+<hr />
+
+<div id="Qubit state-References"><h2 id="References" class="header"><a href="#Qubit state-References">References</a></h2></div>
+
+<p>
+Quantum computing for the very curious: Part 1 <a href="https://quantum.country/qcvc#part-I">https://quantum.country/qcvc#part-I</a>
+</p>
+<blockquote>
+Summing up all these ideas in one sentence: the quantum state of a qubit is a vector of unit length in a two-dimensional complex vector space known as state space.
+</blockquote>
+
+</body>
+</html>
+<html>

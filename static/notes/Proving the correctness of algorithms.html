@@ -1,0 +1,286 @@
+<html>
+<head>
+<style>
+html {
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+  color: #333;
+  font-family: "Libre Baskerville", "Baskerville", Georgia, serif;
+  font-size: 62.5%;
+  line-height: 1.5
+}
+
+*,*::before,*::after {
+  box-sizing: inherit
+}
+
+body {
+  font-size: 1.8rem;
+  margin: 5rem  auto;
+	max-width: 700px;
+	padding: 0 20px;
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration: underline dotted
+}
+
+small {
+  font-size: 80%
+}
+
+sub,sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline
+}
+
+sub {
+  bottom: -.25em
+}
+
+sup {
+  top: -.5em
+}
+
+img {
+  border-style: none;
+  height: auto;
+  max-width: 100%
+}
+
+input,button {
+  color: #333;
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: .7em;
+  box-sizing: border-box
+}
+
+input {
+  border: 1px solid #d1d1d1
+}
+
+button {
+  background-color: transparent;
+  border: 1px solid #d1d1d1;
+  border-radius: .267857em;
+  border-top-color: #d8d8d8;
+  border-bottom-color: #bababa;
+  color: #666;
+  cursor: pointer;
+  padding: .178571em .535714em
+}
+
+[hidden] {
+  display: none
+}
+
+label[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  line-height: 1.1
+}
+
+
+h1 a,h2 a,h3 a,h4 a,h5 a,h6 a {
+	text-decoration: none;
+}
+
+h1 a,h2 a,h3 a,h4 a {
+	color: #121212;
+}
+
+h5 a, h6 a {
+	color: #666;
+}
+
+h1 {
+  color: #121212;
+  font-size: 2em;
+  margin: .5em 0
+}
+
+h2 {
+  color: #121212;
+  font-size: 1.5em;
+  margin: 1.333333em 0 .666667em
+}
+
+h3 {
+  color: #121212;
+  font-size: 1.2em;
+  margin: 1.666666em 0 .833333em
+}
+
+h4 {
+  color: #121212;
+  font-size: 1em;
+  letter-spacing: .025em;
+  text-transform: uppercase;
+  margin: 2em 0 1em
+}
+
+h5 {
+  color: #666;
+  font-size: 1em;
+  letter-spacing: .025em;
+  text-transform: uppercase;
+  margin: 2em 0 1em
+}
+
+h6 {
+  color: #666;
+  font-size: .8em;
+  text-transform: uppercase;
+  letter-spacing: .025em;
+  margin: 2.5em 0 1.25em
+}
+
+a, a:hover,a:active,a:focus {
+	color: #00e;
+  text-decoration: none
+}
+
+blockquote {
+  font-style: italic;
+  margin: 1em 2em
+}
+
+code {
+  color: #121212;
+  font-family: Courier,monospace;
+  font-size: 1em
+}
+
+data::after {
+  content: " (ID " attr(value) ")";
+  display: none;
+  font-size: .8em
+}
+
+data::after:hover {
+  display: inline
+}
+
+figure {
+  margin: 2em 0
+}
+
+figcaption h4 {
+  color: #666;
+  font-size: .8em;
+  font-weight: 400;
+  text-align: right;
+  text-transform: none;
+  margin: .625em 0 1.25em
+}
+
+del {
+  color: #777
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #ddd
+}
+
+ul,ol {
+  padding: 0 0 0 2em
+}
+
+pre {
+  background: #fff !important;
+  overflow-x: scroll;
+  padding: 0
+}
+
+pre code {
+  background: transparent;
+  padding: 0
+}
+
+var {
+  font-family: Helvetica,Arial,sans-serif;
+  font-weight: 600
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<title>Proving the correctness of algorithms</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+    
+<div id="Proving the correctness of algorithms"><h1 id="Proving the correctness of algorithms" class="header"><a href="#Proving the correctness of algorithms">Proving the correctness of algorithms</a></h1></div>
+
+<p>
+Three conditions must be defined and satisfied by the unchanging properties of the loop, kown as a loop invariant, for an algorithm to be proved correct.
+</p>
+
+<p>
+<span id="Proving the correctness of algorithms-Initialization"></span><strong id="Initialization">Initialization</strong>: The loop invariant is true before the first iteration of the loop.
+</p>
+
+<p>
+<span id="Proving the correctness of algorithms-Maintenance"></span><strong id="Maintenance">Maintenance</strong>: The loop invariant established in initialization must remain true before each iteration.
+</p>
+
+<p>
+<span id="Proving the correctness of algorithms-Termination"></span><strong id="Termination">Termination</strong>: When the loop terminates, the loop invariant proves the algorithm's correctness.
+</p>
+
+<p>
+A helpful example is to establish the loop invariant for <em>insertion sort</em> and show how initialization, maintenance, and termination prove it to be correct.
+</p>
+
+<div id="Proving the correctness of algorithms-Insertion sort"><h3 id="Insertion sort" class="header"><a href="#Proving the correctness of algorithms-Insertion sort">Insertion sort</a></h3></div>
+
+<pre>
+for j = 2 to A.length
+  key = A[j]
+  i = j - 1
+  while i &gt; 0 and A[i] &gt; key
+    A[i + 1] = A[i]
+    i = i - 1
+  A[i + 1] = key
+</pre>
+
+<div id="Proving the correctness of algorithms-Insertion sort-Loop invariant"><h4 id="Loop invariant" class="header"><a href="#Proving the correctness of algorithms-Insertion sort-Loop invariant">Loop invariant</a></h4></div>
+
+<p>
+At the start of each iteration of the outer <code>for</code> loop, the subarray <code>A[1...j-1]</code> contains the original elements of <code>A[1...j-1]</code> in sorted order.
+</p>
+
+<div id="Proving the correctness of algorithms-Insertion sort-Initialization"><h4 id="Initialization" class="header"><a href="#Proving the correctness of algorithms-Insertion sort-Initialization">Initialization</a></h4></div>
+
+<p>
+Before the first loop, when <code>j = 2</code> the subarray <code>A[1...j-1]</code> is sorted because <code>A[1]</code> contains a single element.
+</p>
+
+<div id="Proving the correctness of algorithms-Insertion sort-Maintenance"><h4 id="Maintenance" class="header"><a href="#Proving the correctness of algorithms-Insertion sort-Maintenance">Maintenance</a></h4></div>
+
+<p>
+With each iteration of the <code>for</code> loop, the inner <code>while</code> loop shifts elements to the right until the current key can be inserted into the array at the correct location.
+</p>
+
+<div id="Proving the correctness of algorithms-Insertion sort-Termination"><h4 id="Termination" class="header"><a href="#Proving the correctness of algorithms-Insertion sort-Termination">Termination</a></h4></div>
+
+<p>
+The <code>for</code> loop terminates when <code>j &gt; A.length</code> in other words, the end of the array has been reached. We can observe that if <code>j = A.length</code> then <code>A[1...j]</code> will be sorted because the loop invariant was maintained. We can then conclude that the algorithm is correct.
+</p>
+
+</body>
+</html>
