@@ -39,17 +39,16 @@
     }
 
     .logo {
-      display: inline;
+      display: flex;
+      align-items: center;
 
       .mark {
-        display: inline;
         width: 33px;
-        margin-right: 6px;
+        margin-right: 1rem;
       }
 
       .title {
-        display: inline;
-        vertical-align: super;
+        margin: 0;
       }
     }
 
