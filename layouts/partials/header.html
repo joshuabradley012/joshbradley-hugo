@@ -1,20 +1,18 @@
 <header class="header" itemscope itemtype="https://schema.org/WPHeader">
   <div class="inner">
     <a class="logo" rel="bookmark" itemprop="url" href="{{ .Site.BaseURL }}">
-      <img class="mark" itemprop="image" src="{{ "/images/logo.svg" | absURL }}" title="joshbradley.me" alt="Josh Bradley's logo" />
-      <p class="title" itemprop="headline">joshbradley.me</p>
+      <img class="mark" itemprop="image" src="{{ "/images/headshot-purple.png" | absURL }}" title="Josh Bradley" alt="Josh Bradley's logo" />
+      <p class="title" itemprop="headline">Josh Bradley</p>
     </a>
     <nav class="nav" itemscope itemtype="https://schema.org/SiteNavigationElement">
       {{ $currentPage := . }}
       {{ range .Site.Menus.main -}}
         <a class="nav-link{{ if eq $currentPage.RelPermalink .URL }} active{{end}}" href="{{ .URL | absURL }}" rel="bookmark" itemprop="url"><span itemprop="name">{{ .Name }}</span></a>
       {{- end }}
-      <div>—</div>
       {{ range .Site.Menus.secondary -}}
         <a class="nav-link{{ if eq $currentPage.RelPermalink .URL }} active{{end}}" href="{{ .URL | absURL }}" rel="bookmark" itemprop="url"><span itemprop="name">{{ .Name }}</span></a>
       {{- end }}
       {{ partial "social.html" . }}
     </nav>
-    <div id="nav-toggle" class="mobile-nav-toggle"><span></span><span></span><span></span></div>
   </div>
 </header>

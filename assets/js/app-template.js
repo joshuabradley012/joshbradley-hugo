@@ -2,10 +2,10 @@
 
 window.addEventListener('DOMContentLoaded', lazyload, false);
 
-var navToggle = document.getElementById('nav-toggle');
-navToggle.addEventListener('click', function() {
-  document.body.classList.toggle('nav-open');
-});
+//var navToggle = document.getElementById('nav-toggle');
+//navToggle.addEventListener('click', function() {
+//  document.body.classList.toggle('nav-open');
+//});
 
 {{ if eq hugo.Environment "production" }}
 

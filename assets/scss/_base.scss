@@ -1,5 +1,6 @@
 html {
   -webkit-text-size-adjust: 100%;
+  background-color: $white;
   box-sizing: border-box;
   color: $default-color;
   font-family: $main-font;
@@ -53,7 +54,7 @@ img {
 input,
 button {
   color: $default-color;
-  font-family: $sub-font;
+  font-family: $main-font;
   font-size: .7em;
   box-sizing: border-box;
 }
@@ -63,7 +64,7 @@ input {
 }
 
 button {
-  background-color: transparent;
+  background-color: $white;
   border: 1px solid #d1d1d1;
   border-radius: .267857em;
   border-top-color: #d8d8d8;

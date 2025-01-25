@@ -32,7 +32,6 @@
 
     .inner {
       background: $white;
-      height: 65px;
       margin: 0 auto;
       max-width: $content-width;
       padding: 15px 0;
@@ -43,53 +42,56 @@
       display: inline;
 
       .mark {
-        width: 35px;
+        display: inline;
+        width: 33px;
+        margin-right: 6px;
       }
 
       .title {
-        display: none;
+        display: inline;
+        vertical-align: super;
       }
     }
 
-    .nav {
-      background: $white;
-      border-bottom: 1px solid $dark-color;
-      display: none;
-      left: 0;
-      padding: 1rem 0;
-      position: absolute;
-      top: 55px;
-      right: 0;
+    // .nav {
+    //   background: $white;
+    //   border-bottom: 1px solid $dark-color;
+    //   display: none;
+    //   left: 0;
+    //   padding: 0 0 1rem;
+    //   position: absolute;
+    //   top: 55px;
+    //   right: 0;
 
-      .nav-open & {
-        display: block;
-      }
-    }
+    //   .nav-open & {
+    //     display: block;
+    //   }
+    // }
 
-    .mobile-nav-toggle {
-      border-radius: 50%;
-      box-sizing: content-box;
-      cursor: pointer;
-      height: 13px;
-      float: right;
-      padding: 7.5px;
-      margin: 2.5px -3.5px 2.5px 0;
-      width: 13px;
+    //.mobile-nav-toggle {
+    //  border-radius: 50%;
+    //  box-sizing: content-box;
+    //  cursor: pointer;
+    //  height: 13px;
+    //  float: right;
+    //  padding: 7.5px;
+    //  margin: 2.5px -3.5px 2.5px 0;
+    //  width: 13px;
 
-      span {
-        background: $darker-color;
-        border-radius: 50%;
-        display: block;
-        height: 3px;
-        margin: 0 auto 2px;
-        width: 3px;
-      }
+    //  span {
+    //    background: $darker-color;
+    //    border-radius: 50%;
+    //    display: block;
+    //    height: 3px;
+    //    margin: 0 auto 2px;
+    //    width: 3px;
+    //  }
 
-      .nav-open & {
-        background: $nav-active-background;
-        display: block;
-      }
-    }
+    //  .nav-open & {
+    //    background: $nav-active-background;
+    //    display: block;
+    //  }
+    //}
   }
 
   .pagination {
@@ -110,6 +112,7 @@
   }
 
   .main {
+    margin-top: 0;
     font-size: 1.6rem;
   }
 
