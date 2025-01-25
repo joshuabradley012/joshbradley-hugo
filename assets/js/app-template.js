@@ -10,38 +10,39 @@ window.addEventListener('DOMContentLoaded', lazyload, false);
 {{ if eq hugo.Environment "production" }}
 
 if (navigator.serviceWorker) {
+  navigator.serviceWorker.getRegistrations().then(function(registrations){for(let registration of registrations){registration.unregister();}});
 
-  const sw = navigator.serviceWorker;
-  const channel = new MessageChannel();
+  //const sw = navigator.serviceWorker;
+  //const channel = new MessageChannel();
 
-  const controlled = sw.controller;
-  const homepage = location.href === location.origin + '/';
-  const cached = getCookie('cached') === 'true';
+  //const controlled = sw.controller;
+  //const homepage = location.href === location.origin + '/';
+  //const cached = getCookie('cached') === 'true';
 
-  if (controlled && !cached) {
-    const resp = new Promise(res => channel.port1.onmessage = res);
-    sw.controller.postMessage('update-cache', [ channel.port2 ]);
-    resp.then(e => {
-      if (e.data === 'done') {
-        setCookie('cached', 'true', 1);
-        if (homepage) {
-          updateMain();
-        }
-      }
-    });
-  }
+  //if (controlled && !cached) {
+  //  const resp = new Promise(res => channel.port1.onmessage = res);
+  //  sw.controller.postMessage('update-cache', [ channel.port2 ]);
+  //  resp.then(e => {
+  //    if (e.data === 'done') {
+  //      setCookie('cached', 'true', 1);
+  //      if (homepage) {
+  //        updateMain();
+  //      }
+  //    }
+  //  });
+  //}
 
-  // Register service worker after load to prioritize content
-  if (!controlled) {
-    window.addEventListener('load', function() {
-      sw.register('/service-worker.min.js', {updateViaCache: 'none'})
-      .then(function(registation){
-        if (!cached) {
-          setCookie('cached', 'true', 1);
-        }
-      });
-    });
-  }
+  //// Register service worker after load to prioritize content
+  //if (!controlled) {
+  //  window.addEventListener('load', function() {
+  //    sw.register('/service-worker.min.js', {updateViaCache: 'none'})
+  //    .then(function(registation){
+  //      if (!cached) {
+  //        setCookie('cached', 'true', 1);
+  //      }
+  //    });
+  //  });
+  //}
 }
 
 function setCookie(name, value, days) {
