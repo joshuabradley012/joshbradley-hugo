@@ -3,4 +3,8 @@
     {{ with .Title }}<h1 class="h5" itemprop="name">{{ . }}</h1>{{ end }}
     {{ with .Content }}<div itemprop="text">{{ . }}</div>{{ end }}
   </div>
+{{ else }}
+<div class="about-intro">
+  <p class="about-text">Building <a href="https://celest.tech">Celest</a>.<br />Thinking about the shape of the future.</p>
+</div>
 {{ end }}

@@ -5,17 +5,19 @@
   text-decoration: none;
 
   &:hover {
-    text-decoration: underline;
+    color: $light-color;
   }
 
   .title {
-    font-family: $mono-font;
+    font-family: $main-font;
     font-size: 18px;
-    margin: 18px 0 1.8rem;
+    margin: 2rem 0;
+    font-weight: 700;
   }
 
   .mark {
     user-select: none;
     width: 88px;
+    border-radius: 100%;
   }
 }

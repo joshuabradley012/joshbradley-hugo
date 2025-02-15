@@ -1,4 +1,4 @@
 ---
-title: "Josh Bradley | Marketer, Engineer, Analyst"
-description: "Welcome! This is my personal website. Read through my thoughts, see my projects, and get in touch."
+title: "Josh Bradley"
+description: "This is my personal website where you can read my thoughts and find me online."
 ---
